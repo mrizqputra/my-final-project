@@ -20,11 +20,11 @@ import axios from 'axios';
 const Login = () => {
   const formik = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
     validationSchema: Yup.object({
-      username: Yup.string()
+      email: Yup.string()
         // .min(6, 'Must be 6 characters or more')
         // .max(15, 'Must be 15 characters or less')
         .required('Required'),
@@ -47,7 +47,7 @@ const Login = () => {
               apiKey: `w05KkI9AWhKxzvPFtXotUva-`
             },
             data: {
-              username: values.username,
+              email: values.email,
               password: values.password
             }
           })
@@ -68,12 +68,12 @@ const Login = () => {
             }).catch(e => {
               console.log(e)
             }).then(resp => {
-              const userName = values.username
-              localStorage.setItem('userName', userName)
+              const email = values.email
+              localStorage.setItem('email', email)
             })
           })
           .catch(e => {
-            alert('Login belum berhasil! cek username dan password')
+            alert('Login belum berhasil! cek email dan password')
           })
         // });
     },
@@ -85,18 +85,18 @@ const Login = () => {
 
   return <div className='container'>
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="username">Username</label>
+      <label htmlFor="email">Email</label>
       <input
-        id="username"
-        name="username"
+        id="email"
+        name="email"
         type="text"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        value={formik.values.username}
+        value={formik.values.email}
         className="input-group mb-3"
       />
-      {formik.touched.username && formik.errors.username ? (
-        <div>{formik.errors.username}</div>
+      {formik.touched.email && formik.errors.email ? (
+        <div>{formik.errors.email}</div>
       ) : null}
       <br></br>
       <label htmlFor="password">Password</label>
