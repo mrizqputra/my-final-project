@@ -53,15 +53,23 @@ function Navbar() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link to="/">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a className="nav-link">Home</a>
               </Link>
             </li>
             {renderLoginLogout()}
             <li className="nav-item">
-              <Link to="/Register">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a className="nav-link">Sign Up</a>
+              <Link to="/register">
+                <a className="nav-link">Register Member</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/addimage">
+                <a className="nav-link">Add Image</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/foodlist">
+                <a className="nav-link">Food List</a>
               </Link>
             </li>
           </ul>
