@@ -150,10 +150,10 @@ function Foodlist() {
                 <h5 className="card-title">{item.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>
                 <img
-                  className="image"
+                  className="foodlist_img"
                   src={item.imageUrl}
                   style={{ height: "12rem", width: "12rem" }}
-                  alt="image product"
+                  alt="food list img"
                 />
                 <h3 className="card-text">{item.name}</h3>
                 <h4 className="card-text">{item.description}</h4>
