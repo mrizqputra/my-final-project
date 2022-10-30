@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const renderLoginLogout = () => {
-    const userName = localStorage.getItem('userName');
+    const userName = localStorage.getItem('email');
 
-    if (localStorage.getItem("sessionID") || localStorage.getItem("userName")) {
+    if (localStorage.getItem("token") || localStorage.getItem("email")) {
       const handleLogout = () => {
         // TODO: jangan lupa delete session movieDBnya juga
-        localStorage.removeItem("sessionID");
-        localStorage.removeItem("userName");
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
         window.location.href = "/";
       };
       return (

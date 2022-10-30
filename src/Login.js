@@ -7,8 +7,8 @@ import axios from 'axios';
 //   // async/await
 //   try {
 //     const response = await axios({
-//       method: 'get',
-//       url: `${process.env.BASE_URL}/api/v1/login`,
+//       method: 'post',
+//       url: `${BASE_URL}/api/v1/login`,
 //     })
 //     return response.data.request_token
 //   } catch (e) {
@@ -40,48 +40,61 @@ const Login = () => {
     onSubmit: values => {
       // generateRequestToken()
       //   .then(requestToken => {
-          axios({
-            method: 'post',
-            url: `https://api-bootcamp.do.dibimbing.id/api/v1/login`,
-            headers: {
-              apiKey: `w05KkI9AWhKxzvPFtXotUva-`
-            },
-            data: {
-              email: values.email,
-              password: values.password
-            }
-          })
-          .then(res => {
-            const verifiedRequestToken = res.data.request_token;
-            axios({
-              method: 'post',
-              url: `$https://api-bootcamp.do.dibimbing.id/api/v1/login`,
-              data: {
-                request_token: verifiedRequestToken
-              }
-            })
-            .then(resp => {
-              const token = resp.data.token
-              localStorage.setItem('token', token)
-              alert('Login Success!')
-              window.location.href = '/'
-            }).catch(e => {
-              console.log(e)
-            }).then(resp => {
-              const email = values.email
-              localStorage.setItem('email', email)
-            })
-          })
-          .catch(e => {
-            alert('Login belum berhasil! cek email dan password')
-          })
-        // });
-    },
+      axios({
+        method: 'post',
+        url: `${process.env.REACT_APP_BASE_URL}/api/v1/login`,
+        headers: {
+          apiKey: `${process.env.REACT_APP_API_KEY}`
+        },
+        data: {
+          email: values.email,
+          password: values.password
+        }
+        // }).catch(e => {
+        //   console.log(e)
+      }).then(resp => {
+        alert("login successful")
+        console.log(resp);
+        const token = resp.data.token;
+        localStorage.setItem('token', token);
+        const email = values.email;
+        localStorage.setItem('email', email);
+        window.location.href = '/'
+      })
+        // .then(res => {
+        //   // console.log(res);
+        //   const verifiedToken = res.token;
+        //   axios({
+        //     method: 'post',
+        //     url: `${BASE_URL}/api/v1/login`,
+        //     headers: {
+        //       apiKey: `w05KkI9AWhKxzvPFtXotUva-`
+        //     },
+        //       token: verifiedToken
+        //   });
+        //     .then(resp => {
+        //       const token = resp.token
+        //       localStorage.setItem('token', token)
+        //       alert('Login Success!')
+        //       // window.location.href = '/'
+        //     }).catch(e => {
+        //       console.log(e)
+        //     }).then(resp => {
+        //       const email = values.email
+        //       localStorage.setItem('email', email)
+        //     })
+        // })
+        .catch(e => {
+          console.log(e)
+          alert('Login belum berhasil! cek email dan password')
+        })
+      // });
+    }
   });
 
-  useEffect(() => {
-    console.log(localStorage.getItem('token'))
-  }, [])
+  // useEffect(() => {
+  //   console.log(localStorage.getItem('token'))
+  // }, [])
 
   return <div className='container'>
     <form onSubmit={formik.handleSubmit}>

@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# This is my final project on dibimbing.id
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+for use this project, you can login with the admin account.
+email: testregis@gmail.com
+password: qwerty123
 
 ## Available Scripts
 

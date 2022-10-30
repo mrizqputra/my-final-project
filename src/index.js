@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 // import Footer from './footer';
 import Login from './Login';
 import Register from './Register';
+import Foodlist from './foodlist';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />
+      },
+      {
+        path: "/foodlist",
+        element: <Foodlist />
       }
     ],
   }

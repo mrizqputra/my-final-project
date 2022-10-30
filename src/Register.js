@@ -1,48 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 import Upload from "./Upload";
+import BASE_URL from "./baseurl";
 
 const Register = () => {
+  const [fileToUpload, setFileToUpload] = useState('');
+
+
   const formik = useFormik({
     initialValues: {
       name: '',
       email: '',
       password: '',
       passwordRepeat: '',
-      role: [],
-      profilePictureUrl: '',
+      role: '',
       phoneNumber: '',
     },
     validationSchema: Yup.object({
-      name: Yup.string()
-        .min(6, 'Must be 6 characters or more')
-        .max(15, 'Must be 15 characters or less')
-        .required('Required'),
-      email: Yup.string()
-        .required('Required'),
-      password: Yup.string()
-        .min(8, 'Must be 8 characters or more')
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
-      passwordRepeat: Yup.string()
-        .min(8, 'Must be 8 characters or more')
-        .max(20, 'Must be 20 characters or less')
-        .required('Required'),
-      role: Yup.object()
-        .required('Required'),
-      profilePictureUrl: Yup.string()
-        .required('Required'),
-      phoneNumber: Yup.string()
-        .required('Required')
+      // name: Yup.string()
+      //   .min(6, 'Must be 6 characters or more')
+      //   .max(15, 'Must be 15 characters or less')
+      //   .required('Required'),
+      // email: Yup.string()
+      //   .required('Required'),
+      // password: Yup.string()
+      //   .min(8, 'Must be 8 characters or more')
+      //   .max(20, 'Must be 20 characters or less')
+      //   .required('Required'),
+      // passwordRepeat: Yup.string()
+      //   .min(8, 'Must be 8 characters or more')
+      //   .max(20, 'Must be 20 characters or less')
+      //   .required('Required'),
+      // role: Yup.object()
+      //   .required('Required'),
+      // phoneNumber: Yup.string()
+      //   .required('Required')
     }),
     onSubmit: values => {
+      console.log(fileToUpload)
       axios({
         method: 'post',
-        url: `${process.env.BASE_URL}/api/v1/register`,
+        url: `${process.env.REACT_APP_BASE_URL}/api/v1/register`,
         headers: {
-          apiKey: `${process.env.BASE_URL}`
+          apiKey: `${process.env.REACT_APP_API_KEY}`
         },
         data: {
           name: values.name,
@@ -50,10 +52,11 @@ const Register = () => {
           password: values.password,
           passwordRepeat: values.passwordRepeat,
           role: values.role,
-          profilePictureUrl: values.profilePictureUrl,
+          profilePictureUrl: fileToUpload,
           phoneNumber: values.phoneNumber
         }
-      }).then(res => {
+      })
+      .then(res => {
         // const verifiedRequestToken = res.data.request_token;
         // axios({
         //   method: 'post',
@@ -65,7 +68,7 @@ const Register = () => {
         //     request_token: verifiedRequestToken
         alert('Registrasi berhasil! silahkan login')
       }).catch(e => {
-        alert('Login belum berhasil! cek username dan password')
+        alert('register belum berhasil!')
       })
     },
   });
@@ -152,13 +155,16 @@ return (
           Choice your Role
         </label>
         <select
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.role}
           component="select"
-          id="location"
-          name="location"
+          id="role"
+          name="role"
           multiple={false}
           class="form-select">
-          <option value="1">Admin</option>
-          <option value="2">Client</option>
+          <option value="admin">Admin</option>
+          <option value="client">Client</option>
         </select>
       </div>
       <div class="mb-3">
@@ -180,7 +186,8 @@ return (
         ) : null}
       </div>
       <div class="mb-3">
-          <Upload />
+          <Upload
+            onChange={(value) => setFileToUpload(value)} />
       </div>
       <button type="submit" class="btn btn-primary">
         Submit
