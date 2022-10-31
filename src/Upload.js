@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import BASE_URL from "./baseurl";
 
 const Upload = ({onChange}) => {
-  const [image, setImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQAiSbUgqCbN_h3H7g5tjIZK4ljpN7cOAOFg&usqp=CAU");
+  // const [image, setImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQAiSbUgqCbN_h3H7g5tjIZK4ljpN7cOAOFg&usqp=CAU");
   const [saveImage, setSaveImage] = useState("");
 
   const fileUpload = useRef(null);
@@ -72,7 +72,7 @@ const Upload = ({onChange}) => {
 
   return (
     <div className="input-group">
-      <img src={image} alt="" style={{ height: '12rem', width: '12rem' }}/>
+      {/* <img src={image} alt="" style={{ height: '12rem', width: '12rem' }}/> */}
       <input
         type="file"
         ref={fileUpload}

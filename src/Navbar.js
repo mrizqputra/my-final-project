@@ -63,13 +63,13 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/addimage">
-                <a className="nav-link">Add Image</a>
+              <Link to="/foodlist">
+                <a className="nav-link">Food List</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/foodlist">
-                <a className="nav-link">Food List</a>
+              <Link to="/changefooddata">
+                <a className="nav-link">Change Data</a>
               </Link>
             </li>
           </ul>
