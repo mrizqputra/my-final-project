@@ -77,8 +77,8 @@ const Register = () => {
 return (
   <div className="container">
     <form onSubmit={formik.handleSubmit}>
-      <div class="mb-3">
-        <label for="inputName" class="form-label">
+      <div className="mb-3">
+        <label for="inputName" className="form-label">
           Name
         </label>
         <input
@@ -95,8 +95,8 @@ return (
           <div>{formik.errors.username}</div>
         ) : null}
       </div>
-      <div class="mb-3">
-        <label for="inputEmail" class="form-label">
+      <div className="mb-3">
+        <label for="inputEmail" className="form-label">
           Email
         </label>
         <input
@@ -113,8 +113,8 @@ return (
           <div>{formik.errors.email}</div>
         ) : null}
       </div>
-      <div class="mb-3">
-        <label for="inputPassword" class="form-label">
+      <div className="mb-3">
+        <label for="inputPassword" className="form-label">
           Password
         </label>
         <input
@@ -131,8 +131,8 @@ return (
           <div>{formik.errors.password}</div>
         ) : null}
       </div>
-      <div class="mb-3">
-        <label for="inputPasswordRepeat" class="form-label">
+      <div className="mb-3">
+        <label for="inputPasswordRepeat" className="form-label">
           Repeat Password
         </label>
         <input
@@ -149,8 +149,8 @@ return (
           <div>{formik.errors.passwordRepeat}</div>
         ) : null}
       </div>
-      <div class="mb-3">
-        <label for="selectRole" class="form-label">
+      <div className="mb-3">
+        <label for="selectRole" className="form-label">
           Choice your Role
         </label>
         <select
@@ -166,8 +166,8 @@ return (
           <option value="client">Client</option>
         </select>
       </div>
-      <div class="mb-3">
-        <label for="phoneNumber" class="form-label">
+      <div className="mb-3">
+        <label for="phoneNumber" className="form-label">
           Phone Number
         </label>
         <input
@@ -184,11 +184,11 @@ return (
           <div>{formik.errors.phoneNumber}</div>
         ) : null}
       </div>
-      <div class="mb-3">
+      <div className="mb-3">
           <Upload
             onChange={(value) => setFileToUpload(value)} />
       </div>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Submit
       </button>
     </form>

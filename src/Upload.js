@@ -87,7 +87,7 @@ const Upload = ({onChange}) => {
         id="inputGroupFileAddon04"
         onClick={uploadImage}
       >
-        Button
+        Upload
       </button>
     </div>
   );
