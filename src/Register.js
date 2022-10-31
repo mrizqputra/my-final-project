@@ -3,7 +3,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 import Upload from "./Upload";
-import BASE_URL from "./baseurl";
 
 const Register = () => {
   const [fileToUpload, setFileToUpload] = useState('');
