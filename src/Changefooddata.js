@@ -1,14 +1,14 @@
 import axios from "axios";
-import { useFormik, yupToFormErrors } from "formik";
+import { useFormik, yupToFormErrors, Field, FieldArray } from "formik";
 import * as Yup from "yup";
 import React, { useEffect, useState } from "react";
 import Upload from "./Upload";
 
 function Changefooddata() {
-//   const [addName, setAddName] = useState("");
-//   const [addDescription, setAddDescription] = useState("");
-// // //   // const [imageUrl, setImageUrl] = useState("");
-//   const [addIngredients, setAddIngredients] = useState([]);
+  //   const [addName, setAddName] = useState("");
+  //   const [addDescription, setAddDescription] = useState("");
+  // // //   // const [imageUrl, setImageUrl] = useState("");
+  //   const [addIngredients, setAddIngredients] = useState([]);
   // const [rating, setRating] = useState();
   // const [totalLikes, setTotalLikes] = useState();
 
@@ -63,12 +63,12 @@ function Changefooddata() {
     initialValues: {
       name: "",
       description: "",
-      ingredients: [],
+      ingredients: [''],
     },
     validationSchema: Yup.object({
       // name: Yup.string().required('Required'),
       // description: Yup.string().required('Required'),
-      // // ingredients: Yup.object().required('Required'),
+      // ingredients: Yup.object().required('Required'),
     }),
     onSubmit: (values) => {
       console.log(fileToUpload);
@@ -80,10 +80,10 @@ function Changefooddata() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         data: {
-          name: values.addName,
-          description: values.addDescription,
+          name: values.name,
+          description: values.description,
           imageUrl: fileToUpload,
-          ingredients: values.addIngredients,
+          ingredients: values.ingredients,
         },
       })
         .then((response) => {
@@ -95,6 +95,7 @@ function Changefooddata() {
         });
     },
   });
+
 
   // const handleEdit = (id) => {
   //   if (window.confirm('are you sure you want to edit?')) {
@@ -138,35 +139,35 @@ function Changefooddata() {
             Food Name
           </label>
           <input
-            value={formik.values.addName}
+            value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             type="text"
             className="input-group mb-3"
-            id="inputProductName"
+            id="name"
           />
         </div>
-        {formik.touched.addName && formik.errors.addName ? (
-          <div>{formik.errors.addName}</div>
+        {formik.touched.name && formik.errors.name ? (
+          <div>{formik.errors.name}</div>
         ) : null}
         <div className="col-md-6">
           <label for="inputAge" className="form-label">
             Description
           </label>
           <input
-            value={formik.values.addDescription}
+            value={formik.values.description}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             type="text"
             className="input-group mb-3"
-            id="inputDescription"
+            id="description"
           />
         </div>
-        {formik.touched.addDescription && formik.errors.addDescription ? (
-          <div>{formik.errors.addDescription}</div>
+        {formik.touched.description && formik.errors.description ? (
+          <div>{formik.errors.description}</div>
         ) : null}
         <div className="col-md-6">
-        <label for="inputFoodImage" className="form-label">
+          <label for="inputFoodImage" className="form-label">
             Food Image Upload
           </label>
           <Upload onChange={(value) => setFileToUpload(value)} />
@@ -176,16 +177,39 @@ function Changefooddata() {
             Ingredients
           </label>
           <input
-            value={formik.values.addIngredients}
+            value={formik.values.ingredients}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             type="text"
             className="input-group mb-3"
-            id="inputIngredient"
+            id="ingredients"
           />
         </div>
-        {formik.touched.addIngredients && formik.errors.addIngredients ? (
-          <div>{formik.errors.addIngredients}</div>
+        {/* <div className="col-md-6 form-control">
+          <label>List of Ingredients</label>
+          <FieldArray name='Ingredients'>
+            {
+              (fieldArrayProps) => {
+                console.log('fieldArrayProps', fieldArrayProps)
+                const {push, remove, form} = fieldArrayProps
+                const { values } = form
+                const { ingredients } = values
+                return <div>
+                  {ingredients.map((ingredient, index)) => (
+                    <div key={index}>
+                      <Field name={`ingredients[${index}]`}/>
+                      <button type="button" onClick={() => remove(index)}>-</button>
+                      <button type="button" onClick={() => push('')}>+</button>
+                    </div>
+                  )}
+                </div>
+              }
+            }
+
+          </FieldArray>
+        </div> */}
+        {formik.touched.ingredients && formik.errors.ingredients ? (
+          <div>{formik.errors.ingredients}</div>
         ) : null}
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
