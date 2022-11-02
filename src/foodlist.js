@@ -4,13 +4,13 @@ import BASE_URL from "./baseurl";
 
 function Foodlist() {
   const [foodList, setFoodList] = useState([]);
-  const [id, setID] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [ingredients, setIngredients] = useState([]);
-  const [rating, setRating] = useState();
-  const [totalLikes, setTotalLikes] = useState();
+  // const [id, setID] = useState("");
+  // const [name, setName] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
+  // const [ingredients, setIngredients] = useState([]);
+  // const [rating, setRating] = useState();
+  // const [totalLikes, setTotalLikes] = useState();
 
   // const [nameEdit, setNameEdit] = useState('')
   // const [descriptionEdit, setDescriptionEdit] = useState('')
@@ -118,8 +118,13 @@ function Foodlist() {
         alert("ada error, coba reload halaman");
       });
   }, []);
+
+  const isLikesButton = () => {
+
+  }
+
   return (
-    <div className="App">
+    <row className="App">
       {/* <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <label for="inputName" className="form-label">Product Name</label>
@@ -145,7 +150,9 @@ function Foodlist() {
         console.log(item);
         return (
           <div>
-            <div className="card" style={{ width: "18rem" }}>
+            <div className="card col-6"
+            // style={{ width: "18rem" }}
+            >
               <div className="card-body">
                 <h5 className="card-title">{item.name}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>
@@ -156,13 +163,21 @@ function Foodlist() {
                   alt="food list img"
                 />
                 <h3 className="card-text">{item.name}</h3>
-                <h4 className="card-text">{item.description}</h4>
-                <p className="card-text">{item.ingredients}</p>
-                <p className="card-text">{item.rating}</p>
-                <p className="card-text">{item.totalLikes}</p>
-                {/* <a href="#" className="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a>
-              <a href="#" className="card-link" onClick={() => handleDelete(item.id)}>Delete</a> */}
+                <h4 className="card-text">Desciption: {item.description}</h4>
+                <p className="card-text">ingredients: {item.ingredients}</p>
+                <div className="row">
+                  <p className="card-text col-6">{item.rating}</p>
+                  <div className="col-6 flex">
+                  <button className="isLikesButton">
+                    <p className="card-text">{item.totalLikes} 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart ms-1" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                    </svg></p></button>
+                    </div>
+                </div>
               </div>
+              {/* <a href="#" className="card-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</a>
+              <a href="#" className="card-link" onClick={() => handleDelete(item.id)}>Delete</a> */}
             </div>
             {/* <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -198,9 +213,9 @@ function Foodlist() {
             </div>
           </div> */}
           </div>
-        );
-      })}
-    </div>
+  );
+})}
+    </row >
   );
 }
 
