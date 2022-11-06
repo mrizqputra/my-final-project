@@ -7,11 +7,6 @@ const Upload = ({onChange}) => {
   const [saveImage, setSaveImage] = useState("");
 
   const fileUpload = useRef(null);
-  
-  // const handleImage = (event) => {
-  //   console.log(event.target.value)
-  //   setImage(event.target.value)
-  // }
 
   // upload image
   function handleUploadChange(e) {
@@ -21,8 +16,6 @@ const Upload = ({onChange}) => {
     setSaveImage(uploaded)
   }
 
-
-
   function uploadImage() {
     if(!saveImage) {
       alert('please upload a image first')
@@ -31,19 +24,10 @@ const Upload = ({onChange}) => {
         )
       let formData = new FormData();
       formData.append('image', saveImage);
-    //       axios({
-    //   method: 'post',
-    //   url: `${BASE_URL}/api/v1/upload-image`,
-    //   headers: {
-    //     apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
-    //     Authorization: `Bearer${localStorage.getItem("token")}`,
-    //     'Content-Type': 'multipart/form-data',
-    //   },
-    //   body: formData,
-    // })
+
     let config = {
       headers: {
-        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
+        apiKey: `${process.env.REACT_APP_API_KEY}`,
         Authorization: `Bearer${localStorage.getItem("token")}`,
         'Content-Type': 'multipart/form-data',
       },

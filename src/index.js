@@ -7,8 +7,9 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Register from './Register';
 import Foodlist from './foodlist';
+import Showuser from './Showuser';
 import Changefooddata from './Changefooddata';
-import reportWebVitals from './reportWebVitals';
+import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -38,6 +39,14 @@ const router = createBrowserRouter([
         element: <Foodlist />
       },
       {
+        path: "/showuser",
+        element: <Showuser />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+      {
         path: "/changefooddata",
         element: <Changefooddata />
       }
@@ -50,7 +59,3 @@ root.render(
   <RouterProvider router={router} />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

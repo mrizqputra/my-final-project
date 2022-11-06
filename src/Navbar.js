@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const renderLoginLogout = () => {
-    const userName = localStorage.getItem('email');
+    const userName = localStorage.getItem("email");
 
     if (localStorage.getItem("token") || localStorage.getItem("email")) {
       const handleLogout = () => {
@@ -13,20 +13,40 @@ function Navbar() {
       };
       return (
         <>
-        <li className="nav-item">
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="nav-link" onClick={handleLogout}>
-            Logout : {userName}
-          </a>
-        </li>
+          <li className="nav-item">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className="nav-link" onClick={handleLogout}>
+              Logout : {userName}
+            </a>
+          </li>
+          <li className="nav-item">
+            <Link to="/register" className="nav-link">
+              Register Member
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/foodlist" className="nav-link">
+              Food List
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/changefooddata" className="nav-link">
+              Change Data
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/showuser" className="nav-link">
+              Show User
+            </Link>
+          </li>
         </>
       );
     }
     return (
       <li className="nav-item">
-        <Link to="/login">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="nav-link">Login</a>
+        <Link to="/login" className="nav-link">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          Login
         </Link>
       </li>
     );
@@ -52,26 +72,32 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to="/">
-                <a className="nav-link">Home</a>
+              <Link to="/" className="nav-link">
+                Home
               </Link>
             </li>
             {renderLoginLogout()}
-            <li className="nav-item">
-              <Link to="/register">
-                <a className="nav-link">Register Member</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/foodlist">
-                <a className="nav-link">Food List</a>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/changefooddata">
-                <a className="nav-link">Change Data</a>
-              </Link>
-            </li>
+          </ul>
+          <ul class="nav justify-content-end">
+            <ul class="nav nav-pills">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  href="#"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  Profile
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to="/profile" className="nav-link">
+                      Profile
+                    </Link>                  </li>
+                </ul>
+              </li>
+            </ul>
           </ul>
         </div>
       </div>
