@@ -81,6 +81,7 @@ function Navbar() {
           <ul class="nav justify-content-end">
             <ul class="nav nav-pills">
               <li className="nav-item dropdown">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -94,7 +95,8 @@ function Navbar() {
                   <li>
                     <Link to="/profile" className="nav-link">
                       Profile
-                    </Link>                  </li>
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>

@@ -1,21 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-
-// async function generateRequestToken() {
-//   // async/await
-//   try {
-//     const response = await axios({
-//       method: 'post',
-//       url: `${BASE_URL}/api/v1/login`,
-//     })
-//     return response.data.request_token
-//   } catch (e) {
-//     console.error(e)
-//     return null
-//   }
-// }
 
 const Login = () => {
   const formik = useFormik({
@@ -38,8 +24,6 @@ const Login = () => {
       // ),
     }),
     onSubmit: values => {
-      // generateRequestToken()
-      //   .then(requestToken => {
       axios({
         method: 'post',
         url: `${process.env.REACT_APP_BASE_URL}/api/v1/login`,
@@ -50,8 +34,6 @@ const Login = () => {
           email: values.email,
           password: values.password
         }
-        // }).catch(e => {
-        //   console.log(e)
       }).then(resp => {
         alert("login successful")
         console.log(resp);
@@ -61,40 +43,12 @@ const Login = () => {
         localStorage.setItem('email', email);
         window.location.href = '/'
       })
-        // .then(res => {
-        //   // console.log(res);
-        //   const verifiedToken = res.token;
-        //   axios({
-        //     method: 'post',
-        //     url: `${BASE_URL}/api/v1/login`,
-        //     headers: {
-        //       apiKey: `w05KkI9AWhKxzvPFtXotUva-`
-        //     },
-        //       token: verifiedToken
-        //   });
-        //     .then(resp => {
-        //       const token = resp.token
-        //       localStorage.setItem('token', token)
-        //       alert('Login Success!')
-        //       // window.location.href = '/'
-        //     }).catch(e => {
-        //       console.log(e)
-        //     }).then(resp => {
-        //       const email = values.email
-        //       localStorage.setItem('email', email)
-        //     })
-        // })
         .catch(e => {
           console.log(e)
           alert('Login belum berhasil! cek email dan password')
         })
-      // });
     }
   });
-
-  // useEffect(() => {
-  //   console.log(localStorage.getItem('token'))
-  // }, [])
 
   return <div className='container'>
     <form onSubmit={formik.handleSubmit}>
