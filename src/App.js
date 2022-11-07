@@ -1,4 +1,4 @@
-import imgfood from './food.jpg';
+import imgfood from './img/food.jpg';
 import './App.css';
 
 function App() {

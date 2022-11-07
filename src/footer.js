@@ -9,11 +9,14 @@ function Footer() {
         </div>
         <br />
         <div className="col-12 col-sm-6 col-md-4 mb-2">
-          <a href="#" className="tD_none">About Us</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#" id="tD_none">About Us</a>
           <br />
-          <a href="#" className="tD_none">Contact Us</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#" id="tD_none">Contact Us</a>
           <br />
-          <a href="#" className="tD_none">Disclaimer</a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href="#" id="tD_none">Disclaimer</a>
         </div>
         <br />
         <div className="col-12 col-sm-6 col-md-4 feedback_marginTop">
@@ -21,7 +24,7 @@ function Footer() {
           <div className="input-group mb-3">
             <input type="text" className="form-control" placeholder="Ketikan Feedbackmu" />
             <button className="btn btn-outline-secondary" type="button" id="button-addon2" onclick="feedBack();">
-              Kirim
+              send
             </button>
           </div>
         </div>

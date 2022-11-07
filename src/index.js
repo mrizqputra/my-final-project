@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Navbar from './Navbar';
-// import Footer from './footer';
+import Footer from './footer';
 import Login from './Login';
 import Register from './Register';
 import Foodlist from './foodlist';
@@ -16,19 +16,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <>
-    <Navbar />,
-    <Outlet />,
-    {/* <Footer />, */}
+    <Navbar />
+    <Outlet />
+    <Footer />
     </>,
     errorElement: <p>Page Not Found</p>,
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <App />
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <Login />
       },
       {
         path: "/register",

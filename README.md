@@ -4,6 +4,9 @@ for use this project, you can login with the admin account.
 email: testregis@gmail.com
 password: qwerty123
 
+this project deploy on:
+https://goody-foody.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:

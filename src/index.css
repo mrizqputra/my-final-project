@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+#tD_none {
+  text-decoration: none;
+  color: white;
+}
+
 .footer {
   color: white;
   background-color: black;
