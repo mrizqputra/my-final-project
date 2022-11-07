@@ -78,11 +78,11 @@ function Navbar() {
             </li>
             {renderLoginLogout()}
           </ul>
-          <ul class="nav justify-content-end">
+          {/* <ul class="nav justify-content-end">
             <ul class="nav nav-pills">
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown"> */}
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
+                {/* <a
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                   href="#"
@@ -100,7 +100,7 @@ function Navbar() {
                 </ul>
               </li>
             </ul>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </nav>

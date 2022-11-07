@@ -9,7 +9,7 @@ import Register from './Register';
 import Foodlist from './foodlist';
 import Showuser from './Showuser';
 import Changefooddata from './Changefooddata';
-import Profile from './Profile';
+// import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -42,10 +42,10 @@ const router = createBrowserRouter([
         path: "/showuser",
         element: <Showuser />
       },
-      {
-        path: "/profile",
-        element: <Profile />
-      },
+      // {
+      //   path: "/profile",
+      //   element: <Profile />
+      // },
       {
         path: "/changefooddata",
         element: <Changefooddata />
