@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Upload from "./Upload";
 import "./starrating.css";
+import "./foodlist.css";
 
 function Foodlist() {
   useEffect(() => {
@@ -268,224 +269,226 @@ function Foodlist() {
   }
 
   return (
-    <row className="App row">
+    <div className="container">
+    <div className="row">
       {foodList.map((item) => {
         console.log(item);
         return (
           <>
-          <div
-            className="card col-5 mb-2 me-2"
-            // style={{ width: "18rem" }}
-          >
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>
-              <img
-                className="foodlist_img"
-                src={item.imageUrl}
-                style={{ height: "12rem", width: "12rem" }}
-                alt="food list img"
-              />
-              <h3 className="card-text">{item.name}</h3>
-              <h4 className="card-text">Desciption: {item.description}</h4>
-              <p className="card-text">ingredients: {item.ingredients}</p>
-              <div className="row">
-                <p className="card-text col-1">{item.rating}</p>
-                <div className="col-5 flex">
-                  <div class="star-rating">
-                    <input type="radio" id="5-stars" name="rating" value="5" />
-                    <label for="5-stars" class="star">
-                      &#9733;
-                    </label>
-                    <input type="radio" id="4-stars" name="rating" value="4" />
-                    <label for="4-stars" class="star">
-                      &#9733;
-                    </label>
-                    <input type="radio" id="3-stars" name="rating" value="3" />
-                    <label for="3-stars" class="star">
-                      &#9733;
-                    </label>
-                    <input type="radio" id="2-stars" name="rating" value="2" />
-                    <label for="2-stars" class="star">
-                      &#9733;
-                    </label>
-                    <input type="radio" id="1-star" name="rating" value="1" />
-                    <label for="1-star" class="star">
-                      &#9733;
-                    </label>
-                    <p id="one" onclick={myFunction}></p>
+            <div
+              className="col-4 p-1"
+            >
+              <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>
+                <img
+                  className="foodlist_img"
+                  src={item.imageUrl}
+                  style={{ height: "12rem", width: "12rem" }}
+                  alt="food list img"
+                />
+                <h3 className="card-text">{item.name}</h3>
+                <h4 className="card-text">Desciption: {item.description}</h4>
+                <p className="card-text">ingredients: {item.ingredients}</p>
+                <div className="row">
+                  <p className="card-text col-1">{item.rating}</p>
+                  <div className="col-5 flex">
+                    <div class="star-rating">
+                      <input type="radio" id="5-stars" name="rating" value="5" />
+                      <label for="5-stars" class="star">
+                        &#9733;
+                      </label>
+                      <input type="radio" id="4-stars" name="rating" value="4" />
+                      <label for="4-stars" class="star">
+                        &#9733;
+                      </label>
+                      <input type="radio" id="3-stars" name="rating" value="3" />
+                      <label for="3-stars" class="star">
+                        &#9733;
+                      </label>
+                      <input type="radio" id="2-stars" name="rating" value="2" />
+                      <label for="2-stars" class="star">
+                        &#9733;
+                      </label>
+                      <input type="radio" id="1-star" name="rating" value="1" />
+                      <label for="1-star" class="star">
+                        &#9733;
+                      </label>
+                      <p id="one" onclick={myFunction}></p>
+                    </div>
+                  </div>
+                  <div className="col-6 flex">
+                    <button
+                      className="btn"
+                      onClick={() => handleLike(item.id, item.isLike)}
+                      type="button"
+                    >
+                      {/* <p className="card-text"> */}
+                      {item.totalLikes}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-heart ms-1"
+                        style={{ color: `${item.isLike ? "red" : ""}` }}
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                      </svg>
+                      {/* </p> */}
+                    </button>
                   </div>
                 </div>
-                <div className="col-6 flex">
-                  <button
-                    className="btn"
-                    onClick={() => handleLike(item.id, item.isLike)}
-                    type="button"
-                  >
-                    {/* <p className="card-text"> */}
-                    {item.totalLikes}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-heart ms-1"
-                      style={{ color: `${item.isLike ? "red" : ""}` }}
-                      viewBox="0 0 16 16"
+                <div className="row">
+                  <div className="col-6">
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(item.id)}
+                      className="btn btn-outline-danger"
                     >
-                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
-                    </svg>
-                    {/* </p> */}
-                  </button>
+                      Delete
+                    </button>
+                  </div>
+                  <div className="col-6">
+                    <button
+                      data-bs-toggle="modal"
+                      data-bs-target={`#exampleModal-${item.id}`}
+
+                      onClick={() => handleEdit(item.id)}
+                      className="btn btn-outline-warning"
+                    >
+                      edit
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-6">
-                  <button
-                    type="button"
-                    onClick={() => handleDelete(item.id)}
-                    className="btn btn-outline-danger"
-                  >
-                    Delete
-                  </button>
-                </div>
-                <div className="col-6">
-                  <button
-                    data-bs-toggle="modal"
-                    data-bs-target={`#exampleModal-${item.id}`}
-                    
-                    onClick={() => handleEdit(item.id)}
-                    className="btn btn-outline-warning"
-                  >
-                    edit
-                  </button>
-                </div>
               </div>
             </div>
-          </div>
-                    <div
-                    class="modal fade"
-                    id={`exampleModal-${item.id}`}
-                    tabindex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">
-                            do you want to edit data : {item.id}
-                          </h1>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
-                        </div>
-                        <div class="modal-body">
-                          <h3>Latest Food Data</h3>
-                          <h5>name: {item.name}</h5>
-                          <h5>description: {null}</h5>
-                          <h5>ingredients: {null}</h5>
-                          <img
-                            src={null}
-                            style={{ height: "12rem", width: "12rem" }}
-                            alt="food list img"
-                          />
-                          ========================================
-                          <form
-                            className="row g-3"
-                            onSubmit={(e) => handleSubmit(e, item.id)}
-                          >
-                            <div className="col-md-6">
-                              <label for="inputName" className="form-label">
-                                Food Name
-                              </label>
+            <div
+              class="modal fade"
+              id={`exampleModal-${item.id}`}
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      do you want to edit data : {item.id}
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h3>Latest Food Data</h3>
+                    <h5>name: {item.name}</h5>
+                    <h5>description: {null}</h5>
+                    <h5>ingredients: {null}</h5>
+                    <img
+                      src={null}
+                      style={{ height: "12rem", width: "12rem" }}
+                      alt="food list img"
+                    />
+                    ========================================
+                    <form
+                      className="row g-3"
+                      onSubmit={(e) => handleSubmit(e, item.id)}
+                    >
+                      <div className="col-md-6">
+                        <label for="inputName" className="form-label">
+                          Food Name
+                        </label>
+                        <input
+                          value={formik.values.name}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          type="text"
+                          className="input-group mb-3"
+                          id="name"
+                        />
+                      </div>
+                      {formik.touched.name && formik.errors.name ? (
+                        <div>{formik.errors.name}</div>
+                      ) : null}
+                      <div className="col-md-6">
+                        <label for="inputAge" className="form-label">
+                          Description
+                        </label>
+                        <input
+                          value={formik.values.description}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          type="text"
+                          className="input-group mb-3"
+                          id="description"
+                        />
+                      </div>
+                      {formik.touched.description && formik.errors.description ? (
+                        <div>{formik.errors.description}</div>
+                      ) : null}
+                      <div className="col-md-6">
+                        <label for="inputFoodImage" className="form-label">
+                          Food Image Upload
+                        </label>
+                        <Upload onChange={(value) => setFileToUpload(value)} />
+                      </div>
+                      {ingredients.map((ingredient, index) => {
+                        return (
+                          <div className="col-md-6">
+                            <label for="inputIngredient" className="form-label">
+                              Ingredients
+                            </label>
+                            <div className="d-flex">
                               <input
-                                value={formik.values.name}
-                                onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 type="text"
                                 className="input-group mb-3"
-                                id="name"
+                                id="ingredients"
+                                value={ingredient}
+                                onChange={(event) =>
+                                  handleCHangeEditIngredients(
+                                    index,
+                                    event.target.value
+                                  )
+                                }
                               />
-                            </div>
-                            {formik.touched.name && formik.errors.name ? (
-                              <div>{formik.errors.name}</div>
-                            ) : null}
-                            <div className="col-md-6">
-                              <label for="inputAge" className="form-label">
-                                Description
-                              </label>
-                              <input
-                                value={formik.values.description}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                                type="text"
-                                className="input-group mb-3"
-                                id="description"
-                              />
-                            </div>
-                            {formik.touched.description && formik.errors.description ? (
-                              <div>{formik.errors.description}</div>
-                            ) : null}
-                            <div className="col-md-6">
-                              <label for="inputFoodImage" className="form-label">
-                                Food Image Upload
-                              </label>
-                              <Upload onChange={(value) => setFileToUpload(value)} />
-                            </div>
-                            {ingredients.map((ingredient, index) => {
-                              return (
-                                <div className="col-md-6">
-                                  <label for="inputIngredient" className="form-label">
-                                    Ingredients
-                                  </label>
-                                  <div className="d-flex">
-                                    <input
-                                      onBlur={formik.handleBlur}
-                                      type="text"
-                                      className="input-group mb-3"
-                                      id="ingredients"
-                                      value={ingredient}
-                                      onChange={(event) =>
-                                        handleCHangeEditIngredients(
-                                          index,
-                                          event.target.value
-                                        )
-                                      }
-                                    />
-                                    <button
-                                      className="btn btn-warning"
-                                      onClick={() => handleAddEditIngredients()}
-                                      type="button"
-                                    >
-                                      Add
-                                    </button>
-                                    <button
-                                      className="btn btn-warning"
-                                      onClick={() => handleRemoveEditIngredients(index)}
-                                      type="button"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                  {formik.touched.ingredients &&
-                                  formik.errors.ingredients ? (
-                                    <div>{formik.errors.ingredients}</div>
-                                  ) : null}
-                                </div>
-                              );
-                            })}
-                            <div className="col-12">
-                              <button type="submit" className="btn btn-primary">
-                                Edit Food
+                              <button
+                                className="btn btn-warning"
+                                onClick={() => handleAddEditIngredients()}
+                                type="button"
+                              >
+                                Add
+                              </button>
+                              <button
+                                className="btn btn-warning"
+                                onClick={() => handleRemoveEditIngredients(index)}
+                                type="button"
+                              >
+                                Delete
                               </button>
                             </div>
-                          </form>
-                        </div>
-                        {/* <div class="modal-footer">
+                            {formik.touched.ingredients &&
+                              formik.errors.ingredients ? (
+                              <div>{formik.errors.ingredients}</div>
+                            ) : null}
+                          </div>
+                        );
+                      })}
+                      <div className="col-12">
+                        <button type="submit" className="btn btn-primary">
+                          Edit Food
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  {/* <div class="modal-footer">
                             <button
                               type="button"
                               class="btn btn-secondary"
@@ -497,10 +500,10 @@ function Foodlist() {
                               Edit Food Data
                             </button>
                           </div> */}
-                      </div>
-                    </div>
-                  </div>
-</>        
+                </div>
+              </div>
+            </div>
+          </>
         );
       })}
       {/* below is modal for edit food data */}
@@ -647,7 +650,8 @@ function Foodlist() {
         );
       })} */}
       {/* end of modal feature */}
-    </row>
+    </div>
+    </div>
   );
 }
 
