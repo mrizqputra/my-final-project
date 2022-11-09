@@ -1,0 +1,10 @@
+.logo{
+position: absolute;
+top: 5px;
+}
+
+.login_box {
+    position: relative;
+    top: 320px;
+    height: 720px;
+}

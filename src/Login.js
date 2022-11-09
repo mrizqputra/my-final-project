@@ -1,56 +1,64 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import axios from 'axios';
+import React from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import logo from "./img/logo.jpg";
+import "./Login.css";
 
 const Login = () => {
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
     validationSchema: Yup.object({
       email: Yup.string()
         // .min(6, 'Must be 6 characters or more')
         // .max(15, 'Must be 15 characters or less')
-        .required('Required'),
+        .required("Required"),
       password: Yup.string()
         // .min(8, 'Must be 8 characters or more')
         // .max(20, 'Must be 20 characters or less')
-        .required('Required')
+        .required("Required"),
       // .matches(
       //   /^.*(?=.*\d)((?=.*[a-zA-Z]){1}).*$/,
       //   "Password must contain atleast one letter and one number"
       // ),
     }),
-    onSubmit: values => {
+    onSubmit: (values) => {
       axios({
-        method: 'post',
+        method: "post",
         url: `${process.env.REACT_APP_BASE_URL}/api/v1/login`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`
+          apiKey: `${process.env.REACT_APP_API_KEY}`,
         },
         data: {
           email: values.email,
-          password: values.password
-        }
-      }).then(resp => {
-        alert("login successful")
-        console.log(resp);
-        const token = resp.data.token;
-        localStorage.setItem('token', token);
-        const email = values.email;
-        localStorage.setItem('email', email);
-        window.location.href = '/'
+          password: values.password,
+        },
       })
-        .catch(e => {
-          console.log(e)
-          alert('Login belum berhasil! cek email dan password')
+        .then((resp) => {
+          alert("login successful");
+          console.log(resp);
+          const token = resp.data.token;
+          localStorage.setItem("token", token);
+          const email = values.email;
+          localStorage.setItem("email", email);
+          window.location.href = "/";
         })
-    }
+        .catch((e) => {
+          console.log(e);
+          alert("Login belum berhasil! cek email dan password");
+        });
+    },
   });
 
-  return <div className='container'>
+  return (
+  <div className="container mb-3">
+    <div className="container">
+    <img src={logo} alt="logo" className="logo"/>
+    </div>
+    <div className="login_box">
     <form onSubmit={formik.handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
@@ -80,9 +88,13 @@ const Login = () => {
         <div>{formik.errors.password}</div>
       ) : null}
       <br></br>
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
     </form>
+    </div>
   </div>
-}
+  )
+};
 
 export default Login;

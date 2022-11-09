@@ -9,6 +9,7 @@ import Register from './Register';
 import Foodlist from './foodlist';
 import Showuser from './Showuser';
 import Changefooddata from './Changefooddata';
+import Homefood from './homefood';
 // import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />
+        element: <><App /><Homefood /></>  
       },
       {
         path: "/login",

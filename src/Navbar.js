@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
   const renderLoginLogout = () => {
@@ -14,9 +15,14 @@ function Navbar() {
       return (
         <>
           <li className="nav-item">
+            <p className="nav-link" style={{ color: "black" }}>
+              hi {userName}
+            </p>
+          </li>
+          <li className="nav-item">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="nav-link" onClick={handleLogout}>
-              Logout : {userName}
+              Logout
             </a>
           </li>
           <li className="nav-item">
@@ -52,12 +58,15 @@ function Navbar() {
     );
   };
   return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
+    <div className="container mb-3">
+      <div
+        className="navbar sticky-top navbar-expand-lg ms-2 me-2"
+        style={{ borderBottom: "1px solid" }}
+      >
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        <Link to="/" className="navbar-brand">
+          Goody Foody
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -76,13 +85,12 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            {renderLoginLogout()}
           </ul>
-          {/* <ul class="nav justify-content-end">
-            <ul class="nav nav-pills">
-              <li className="nav-item dropdown"> */}
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                {/* <a
+          <ul class="nav justify-content-end ">
+            {renderLoginLogout()}
+            {/* <ul class="nav nav-pills">
+              <li className="nav-item dropdown">
+                <a
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                   href="#"
@@ -99,11 +107,11 @@ function Navbar() {
                   </li>
                 </ul>
               </li>
-            </ul>
-          </ul> */}
+            </ul> */}
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
 export default Navbar;
