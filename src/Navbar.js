@@ -16,14 +16,14 @@ function Navbar() {
         <>
           <li className="nav-item">
             <p className="nav-link" style={{ color: "black" }}>
-              hi {userName}
+              <span className="orange">hi</span> {userName}
             </p>
           </li>
           <li className="nav-item">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="nav-link" onClick={handleLogout}>
+            <Link className="nav-link" onClick={handleLogout}>
               Logout
-            </a>
+            </Link>
           </li>
           {/* <li className="nav-item">
             <Link to="/register" className="nav-link">
@@ -86,28 +86,8 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <ul class="nav justify-content-end ">
+          <ul class="nav justify-content-end mt-2">
             {renderLoginLogout()}
-            {/* <ul class="nav nav-pills">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-expanded="false"
-                >
-                  Profile
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/profile" className="nav-link">
-                      Profile
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul> */}
           </ul>
         </div>
       </div>

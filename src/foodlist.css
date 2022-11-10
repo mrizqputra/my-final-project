@@ -55,3 +55,39 @@ border-radius: 10px;
     background: #F8F8F8;
     border-radius: 10px;
     }
+
+    .input_box {
+        /* Rectangle 1381 */
+    
+    
+    box-sizing: border-box;
+    
+    /* position: absolute; */
+    width: 70%;
+    height: 50px;
+    /* left: calc(50% - 500px/2 + 1px);
+    top: calc(50% - 50px/2 - 132px); */
+    
+    background: #FFFFFF;
+    border: 1px solid #BCBEC0;
+    border-radius: 10px;
+    }
+    
+    .input_label {
+        margin-left: 15%;
+    }
+    
+    .button_submit {
+        /* Rectangle 1383 */
+    
+    
+    /* position: absolute;
+    width: 500px; */
+    height: 50px;
+    /* left: calc(50% - 500px/2 + 4px);
+    top: calc(50% - 50px/2 + 97px); */
+    margin-left: 15%;
+    background: #003465;
+    border-radius: 10px;
+    }
+    

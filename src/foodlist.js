@@ -340,10 +340,10 @@ function Foodlist() {
                     <div class="modal-body">
                       <h3>Latest Food Data</h3>
                       <h5>name: {item.name}</h5>
-                      <h5>description: {null}</h5>
-                      <h5>ingredients: {null}</h5>
+                      <h5>description: {item.description}</h5>
+                      <h5>ingredients: {item.ingredient}</h5>
                       <img
-                        src={null}
+                        src={item.imageUrl}
                         style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
                       />
@@ -352,8 +352,7 @@ function Foodlist() {
                         className="row g-3"
                         onSubmit={(e) => handleSubmit(e, item.id)}
                       >
-                        <div className="col-md-6">
-                          <label for="inputName" className="form-label">
+                          <label for="inputName" className="form-label input_label">
                             Food Name
                           </label>
                           <input
@@ -361,15 +360,13 @@ function Foodlist() {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             type="text"
-                            className="input-group mb-3"
+                            className="input-group mb-3 input_box"
                             id="name"
                           />
-                        </div>
                         {formik.touched.name && formik.errors.name ? (
                           <div>{formik.errors.name}</div>
                         ) : null}
-                        <div className="col-md-6">
-                          <label for="inputAge" className="form-label">
+                          <label for="inputAge" className="form-label input_label">
                             Description
                           </label>
                           <input
@@ -377,36 +374,33 @@ function Foodlist() {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             type="text"
-                            className="input-group mb-3"
+                            className="input-group mb-3 input_box"
                             id="description"
                           />
-                        </div>
                         {formik.touched.description &&
                         formik.errors.description ? (
                           <div>{formik.errors.description}</div>
                         ) : null}
-                        <div className="col-md-6">
-                          <label for="inputFoodImage" className="form-label">
+                          <label for="inputFoodImage" className="form-label input_label">
                             Food Image Upload
                           </label>
                           <Upload
                             onChange={(value) => setFileToUpload(value)}
                           />
-                        </div>
                         {ingredients.map((ingredient, index) => {
                           return (
-                            <div className="col-md-6">
+                            <>
                               <label
                                 for="inputIngredient"
-                                className="form-label"
+                                className="form-label input_label"
                               >
                                 Ingredients
                               </label>
-                              <div className="d-flex">
+                              <div className="container-fluid">
                                 <input
                                   onBlur={formik.handleBlur}
                                   type="text"
-                                  className="input-group mb-3"
+                                  className="input-group mb-3 input_box"
                                   id="ingredients"
                                   value={ingredient}
                                   onChange={(event) =>
@@ -417,14 +411,15 @@ function Foodlist() {
                                   }
                                 />
                                 <button
-                                  className="btn btn-warning"
+                                  className="btn btn-success button_submit"
                                   onClick={() => handleAddEditIngredients()}
                                   type="button"
                                 >
                                   Add
                                 </button>
                                 <button
-                                  className="btn btn-warning"
+                                  className="btn btn-danger button_submit"
+                                  style={{marginLeft: "0"}}
                                   onClick={() =>
                                     handleRemoveEditIngredients(index)
                                   }
@@ -437,11 +432,11 @@ function Foodlist() {
                               formik.errors.ingredients ? (
                                 <div>{formik.errors.ingredients}</div>
                               ) : null}
-                            </div>
+                              </>
                           );
                         })}
                         <div className="col-12">
-                          <button type="submit" className="btn btn-primary">
+                          <button type="submit" className="btn btn-primary button_submit">
                             Edit Food
                           </button>
                         </div>

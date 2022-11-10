@@ -24,9 +24,13 @@ function Homefood() {
 
   const [foodList, setFoodList] = useState([]);
 
-  return (
-    <div className="container mb-3">
-      <div className="text-center">
+  const renderGetFood = () => {
+    if (localStorage.getItem("token")) {
+      return null;
+    }
+    return (
+      <>
+            <div className="text-center">
         <h3>
           <span className="orange"><u>This is Food at Goody Foody</u></span>
         </h3>
@@ -59,6 +63,13 @@ function Homefood() {
           );
         })}
       </div>
+      </>
+    )
+  }
+
+  return (
+    <div className="container mb-3">
+      {renderGetFood()}
     </div>
   );
 }
