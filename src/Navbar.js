@@ -25,19 +25,19 @@ function Navbar() {
               Logout
             </a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link to="/register" className="nav-link">
               Register Member
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link to="/foodlist" className="nav-link">
               Food List
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/changefooddata" className="nav-link">
-              Change Data
+            <Link to="/registerfood" className="nav-link">
+              Register Food
             </Link>
           </li>
           <li className="nav-item">
@@ -61,7 +61,7 @@ function Navbar() {
     <div className="container mb-3">
       <div
         className="navbar sticky-top navbar-expand-lg ms-2 me-2"
-        style={{ borderBottom: "1px solid" }}
+        style={{ borderBottom: "2px solid" }}
       >
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <Link to="/" className="navbar-brand">

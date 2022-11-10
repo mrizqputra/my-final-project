@@ -55,12 +55,11 @@ const Login = () => {
 
   return (
   <div className="container mb-3">
-    <div className="container">
-    <img src={logo} alt="logo" className="logo"/>
-    </div>
-    <div className="login_box">
+    <div className="container-fluid">
+    <img src={logo} alt="logo" className="img-fluid mx-auto d-block img_set"/>
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email</label>
+      <div className="container-fluid">
+      <label htmlFor="email" className="input_label">Email</label>
       <input
         id="email"
         name="email"
@@ -68,13 +67,13 @@ const Login = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email}
-        className="input-group mb-3"
+        className="input-group mb-3 input_box mx-auto"
       />
       {formik.touched.email && formik.errors.email ? (
         <div>{formik.errors.email}</div>
       ) : null}
       <br></br>
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password" className="input_label">Password</label>
       <input
         id="password"
         name="password"
@@ -82,18 +81,19 @@ const Login = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.password}
-        className="input-group mb-3"
+        className="input-group mb-3 input_box mx-auto"
       />
       {formik.touched.password && formik.errors.password ? (
         <div>{formik.errors.password}</div>
       ) : null}
       <br></br>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary button_login">
         Submit
       </button>
+      </div>
     </form>
     </div>
-  </div>
+    </div>
   )
 };
 

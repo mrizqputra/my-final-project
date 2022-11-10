@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import BASE_URL from "./baseurl";
+import "./Upload.css"
 
 const Upload = ({onChange}) => {
   // const [image, setImage] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQAiSbUgqCbN_h3H7g5tjIZK4ljpN7cOAOFg&usqp=CAU");
@@ -55,12 +56,12 @@ const Upload = ({onChange}) => {
   }
 
   return (
-    <div className="input-group">
+    <div className="input-group input_box">
       {/* <img src={image} alt="" style={{ height: '12rem', width: '12rem' }}/> */}
       <input
         type="file"
         ref={fileUpload}
-        className="form-control"
+        className="form-control upload_button"
         id="formFile"
         onChange={handleUploadChange}
         accepts="image/*" 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import "./Showuser.css";
 
 function Showuser() {
   const [userList, setUserList] = useState([]);
@@ -25,34 +26,39 @@ function Showuser() {
   }, []);
 
   return (
-    <row className="App">
-      {userList.map((item) => {
-        console.log(item);
-        return (
-          <div>
-            <div
-              className="card col-6"
-              // style={{ width: "18rem" }}
-            >
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">ID: {item.id}</h6>
-                <img
-                  className="foodlist_img"
-                  src={item.profilePictureUrl}
-                  style={{ height: "12rem", width: "12rem" }}
-                  alt="user list img"
-                />
-                <h3 className="card-text">{item.name}</h3>
-                <p className="card-text">Email: {item.email}</p>
-                <p className="card-text">Role: {item.role}</p>
-                <p className="card-text">phone number: {item.phoneNumber}</p>
+    <div className="container mb-3">
+      <div className="container">
+        <div className="row">
+          {userList.map((item) => {
+            console.log(item);
+            return (
+              <div className="col-5 col-md-3 mb-3">
+                <div className="card p-1 align-items-center">
+                  <div className="card-body">
+                    {/* <h5 className="card-title">{item.name}</h5> */}
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      ID: {item.id}
+                    </h6>
+                    <img
+                      className="user_img img-fluid"
+                      src={item.profilePictureUrl}
+                      style={{ height: "12rem", width: "12rem" }}
+                      alt="user list img"
+                    />
+                    <h3 className="card-text">{item.name}</h3>
+                    <p className="card-text">Email: {item.email}</p>
+                    <p className="card-text">Role: {item.role}</p>
+                    <p className="card-text">
+                      phone number: {item.phoneNumber}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-    </row>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 

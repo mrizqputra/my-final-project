@@ -8,8 +8,9 @@ import Login from './Login';
 import Register from './Register';
 import Foodlist from './foodlist';
 import Showuser from './Showuser';
-import Changefooddata from './Changefooddata';
+import Registerfood from './Registerfood';
 import Homefood from './homefood';
+// import Breadcrump from './Breadcrump';
 // import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/foodlist",
-        element: <Foodlist />
+        element: <>
+        {/* <Breadcrump/> */}
+        <Foodlist /></>
       },
       {
         path: "/showuser",
@@ -48,8 +51,8 @@ const router = createBrowserRouter([
       //   element: <Profile />
       // },
       {
-        path: "/changefooddata",
-        element: <Changefooddata />
+        path: "/registerfood",
+        element: <Registerfood />
       }
     ],
   }

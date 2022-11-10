@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 import Upload from "./Upload";
+import logo from "./img/logo.jpg";
 
 const Register = () => {
   const [fileToUpload, setFileToUpload] = useState('');
@@ -18,10 +19,10 @@ const Register = () => {
       phoneNumber: '',
     },
     validationSchema: Yup.object({
-      // name: Yup.string()
+      name: Yup.string()
       //   .min(6, 'Must be 6 characters or more')
       //   .max(15, 'Must be 15 characters or less')
-      //   .required('Required'),
+        .required('Required'),
       // email: Yup.string()
       //   .required('Required'),
       // password: Yup.string()
@@ -56,15 +57,6 @@ const Register = () => {
         }
       })
       .then(res => {
-        // const verifiedRequestToken = res.data.request_token;
-        // axios({
-        //   method: 'post',
-        //   url: `${process.env.BASE_URL}/api/v1/register`,
-        //   headers: {
-        //     apiKey: `${process.env.BASE_URL}`
-        //     },    
-        //   data: {
-        //     request_token: verifiedRequestToken
         alert('Registrasi berhasil! silahkan login')
       }).catch(e => {
         alert('register belum berhasil!')
@@ -75,10 +67,13 @@ const Register = () => {
 
 
 return (
-  <div className="container">
+  <div className="container mb-3">
+    <div className="container-fluid">
+    <img src={logo} alt="logo" className="img-fluid mx-auto d-block img_set"/>
     <form onSubmit={formik.handleSubmit}>
+      <div className="container-fluid">
       <div className="mb-3">
-        <label for="inputName" className="form-label">
+        <label for="inputName" className="form-label input_label">
           Name
         </label>
         <input
@@ -88,7 +83,7 @@ return (
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.name}
-          className="input-group mb-3"
+          className="input-group mb-3 input_box mx-auto"
         />
         {/* check error or not */}
         {formik.touched.username && formik.errors.username ? (
@@ -96,7 +91,7 @@ return (
         ) : null}
       </div>
       <div className="mb-3">
-        <label for="inputEmail" className="form-label">
+        <label for="inputEmail" className="form-label input_label">
           Email
         </label>
         <input
@@ -106,7 +101,7 @@ return (
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.email}
-          className="input-group mb-3"
+          className="input-group mb-3 input_box mx-auto"
         />
         {/* check error or not */}
         {formik.touched.email && formik.errors.email ? (
@@ -114,7 +109,7 @@ return (
         ) : null}
       </div>
       <div className="mb-3">
-        <label for="inputPassword" className="form-label">
+        <label for="inputPassword" className="form-label input_label">
           Password
         </label>
         <input
@@ -124,7 +119,7 @@ return (
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
-          className="input-group mb-3"
+          className="input-group mb-3 input_box mx-auto"
         />
         {/* check error or not */}
         {formik.touched.password && formik.errors.password ? (
@@ -132,7 +127,7 @@ return (
         ) : null}
       </div>
       <div className="mb-3">
-        <label for="inputPasswordRepeat" className="form-label">
+        <label for="inputPasswordRepeat" className="form-label input_label">
           Repeat Password
         </label>
         <input
@@ -142,7 +137,7 @@ return (
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.passwordRepeat}
-          className="input-group mb-3"
+          className="input-group mb-3 input_box mx-auto"
         />
         {/* check error or not */}
         {formik.touched.passwordRepeat && formik.errors.passwordRepeat ? (
@@ -150,7 +145,7 @@ return (
         ) : null}
       </div>
       <div className="mb-3">
-        <label for="selectRole" className="form-label">
+        <label for="selectRole" className="form-label input_label">
           Choice your Role
         </label>
         <select
@@ -161,13 +156,15 @@ return (
           id="role"
           name="role"
           multiple={false}
-          class="form-select">
+          className="form-select input_box mx-auto">
+          <option selected>Open this select menu
+          </option>
           <option value="admin">Admin</option>
           <option value="client">Client</option>
         </select>
       </div>
       <div className="mb-3">
-        <label for="phoneNumber" className="form-label">
+        <label for="phoneNumber" className="form-label input_label">
           Phone Number
         </label>
         <input
@@ -177,21 +174,26 @@ return (
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.phoneNumber}
-          className="input-group mb-3"
+          className="input-group mb-3 input_box mx-auto"
         />
         {/* check error or not */}
         {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
           <div>{formik.errors.phoneNumber}</div>
         ) : null}
       </div>
-      <div className="mb-3">
+      <div className="mb-3 ">
+      <label for="upload image" className="form-label input_label">
+          Upload Your Image Profile
+        </label>
           <Upload
             onChange={(value) => setFileToUpload(value)} />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary button_login">
         Submit
       </button>
+      </div>
     </form>
+    </div>
   </div>
 );
 }

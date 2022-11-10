@@ -1,0 +1,35 @@
+.user_img {
+    /* width: 256px;
+height: 256px; */
+
+border-radius: 10px;
+padding-left: 0;
+
+/* Inside auto layout */
+
+/* flex: none;
+order: 0;
+flex-grow: 0; */
+}
+
+.card {
+justify-content: center;
+align-items: center;
+padding: 25px;
+gap: 10px;
+/* width: 307px; */
+height: 500px;
+background: #F8F8F8;
+border-radius: 10px;
+}
+
+.card_list {
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    gap: 10px;
+    /* width: 307px; */
+    height: 600px;
+    background: #F8F8F8;
+    border-radius: 10px;
+    }
