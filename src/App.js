@@ -18,7 +18,7 @@ function App() {
           <div className="row">
             <div className="col-12 col-sm-6 mb-3">
               <img
-                className="homeImgLogin"
+                className="homeImgLogin image-fluid"
                 src={regisFood}
                 alt="homeImgLogin"
               />
@@ -52,7 +52,7 @@ function App() {
           </div>
           <div className="row">
             <div className="col-12 col-sm-6 mb-3 order-1 order-sm-2">
-              <img className="homeImgLogin" src={seeFood} alt="homeImgLogin" />
+              <img className="homeImgLogin image-fluid" src={seeFood} alt="homeImgLogin" />
             </div>
             <div className="col-12 col-sm-6 mb-3 order-2 order-sm-1">
             <div className="homeText">
@@ -83,7 +83,7 @@ function App() {
           </div>
           <div className="row">
             <div className="col-12 col-sm-6 mb-3">
-              <img className="homeImgLogin" src={seeUser} alt="homeImgLogin" />
+              <img className="homeImgLogin image-fluid" src={seeUser} alt="homeImgLogin" />
             </div>
             <div className="col-12 col-sm-6 mb-3">
             <div className="homeText">
