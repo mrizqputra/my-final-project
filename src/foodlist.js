@@ -7,8 +7,8 @@ import "./starrating.css";
 import "./foodlist.css";
 
 function Foodlist() {
-  useEffect(() => {
-    // Promise
+
+  const getFoodData = () => {
     axios({
       method: "get",
       url: `${process.env.REACT_APP_BASE_URL}/api/v1/foods`,
@@ -25,6 +25,10 @@ function Foodlist() {
         console.error(error);
         alert("ada error, coba reload halaman");
       });
+  };
+
+  useEffect(() => {
+    getFoodData()
   }, []);
 
   const [foodList, setFoodList] = useState([]);
@@ -158,7 +162,7 @@ function Foodlist() {
       })
         .then((response) => {
           console.log(response);
-          alert("like success");
+          // alert("like success");
           window.location.reload()
         })
         .catch((error) => {
@@ -178,13 +182,14 @@ function Foodlist() {
       })
         .then((response) => {
           console.log(response);
-          alert("unlike success");
+          // alert("unlike success");
           // window.location.reload()
         })
         .catch((error) => {
           console.error(error);
         });
     }
+    getFoodData()
   };
 
   // rating function
@@ -200,7 +205,7 @@ function Foodlist() {
           console.log(item);
           return (
             <>
-              <div className="col-6 col-md-3 p-1">
+              <div className="col-6 col-md-3 p-3">
                 <div className="card_list">
                   <div className="card-body">
                     {/* <h5 className="card-title">{item.name}</h5> */}
@@ -298,7 +303,7 @@ function Foodlist() {
                         <button
                           type="button"
                           onClick={() => handleDelete(item.id)}
-                          className="btn btn-outline-danger"
+                          className="btn btn-danger button_submit"
                         >
                           Delete
                         </button>
@@ -308,7 +313,7 @@ function Foodlist() {
                           data-bs-toggle="modal"
                           data-bs-target={`#exampleModal-${item.id}`}
                           onClick={() => handleEdit(item.id)}
-                          className="btn btn-outline-warning"
+                          className="btn btn-warning button_submit"
                         >
                           edit
                         </button>
@@ -338,16 +343,17 @@ function Foodlist() {
                       ></button>
                     </div>
                     <div class="modal-body">
-                      <h3>Latest Food Data</h3>
-                      <h5>name: {item.name}</h5>
-                      <h5>description: {item.description}</h5>
-                      <h5>ingredients: {item.ingredient}</h5>
+                      <h3 className="input_label">Latest Food Data</h3>
+                      <h5 className="input_label">name: {item.name}</h5>
+                      <h5 className="input_label">description: {item.description}</h5>
+                      <h5 className="input_label">ingredients: {item.ingredients}</h5>
                       <img
                         src={item.imageUrl}
-                        style={{ height: "12rem", width: "12rem" }}
+                        // style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
                       />
-                      ========================================
+                      <div className="input_label">========================================
+                      </div>
                       <form
                         className="row g-3"
                         onSubmit={(e) => handleSubmit(e, item.id)}

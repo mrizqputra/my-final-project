@@ -89,5 +89,9 @@ border-radius: 10px;
     margin-left: 15%;
     background: #003465;
     border-radius: 10px;
+    color: white;
     }
     
+.modal {
+    --bs-modal-width: 700px;
+}

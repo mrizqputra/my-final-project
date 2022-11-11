@@ -16,14 +16,14 @@ function App() {
       return (
         <>
           <div className="row">
-            <div className="col-12 col-sm-6 mb-3">
+            <div className="col-12 col-sm-6 mb-3 px-1">
               <img
                 className="homeImgLogin image-fluid"
                 src={regisFood}
                 alt="homeImgLogin"
               />
             </div>
-            <div className="col-12 col-sm-6 mb-3">
+            <div className="col-12 col-sm-6 mb-3 px-1">
               <div className="homeText">
                 what your <span className="orange">favorite food?</span>
               </div>
@@ -51,10 +51,10 @@ function App() {
             </div>
           </div>
           <div className="row">
-            <div className="col-12 col-sm-6 mb-3 order-1 order-sm-2">
+            <div className="col-12 col-sm-6 mb-3 order-1 order-sm-2 px-1">
               <img className="homeImgLogin image-fluid" src={seeFood} alt="homeImgLogin" />
             </div>
-            <div className="col-12 col-sm-6 mb-3 order-2 order-sm-1">
+            <div className="col-12 col-sm-6 mb-3 order-2 order-sm-1 px-1">
             <div className="homeText">
                 what Goody Foody <span className="orange">inside?</span>
               </div>
@@ -82,10 +82,10 @@ function App() {
             </div>
           </div>
           <div className="row">
-            <div className="col-12 col-sm-6 mb-3">
+            <div className="col-12 col-sm-6 mb-3 px-1">
               <img className="homeImgLogin image-fluid" src={seeUser} alt="homeImgLogin" />
             </div>
-            <div className="col-12 col-sm-6 mb-3">
+            <div className="col-12 col-sm-6 mb-3 px-1">
             <div className="homeText">
                 who use <span className="orange">Goody Foody?</span>
               </div>
