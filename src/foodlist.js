@@ -162,6 +162,7 @@ function Foodlist() {
       .catch((error) => {
         console.error(error);
       });
+      getFoodData();
     // }
   };
 
@@ -410,7 +411,7 @@ function Foodlist() {
                       </h5>
                       <img
                         src={item.imageUrl}
-                        // style={{ height: "12rem", width: "12rem" }}
+                        style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
                       />
                       <div className="input_label">
@@ -561,7 +562,7 @@ function Foodlist() {
                       <h5 className="input_label">rating: {item.rating}</h5>
                       <img
                         src={item.imageUrl}
-                        // style={{ height: "12rem", width: "12rem" }}
+                        style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
                       />
                       <div className="input_label">
