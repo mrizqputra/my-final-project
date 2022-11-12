@@ -93,11 +93,12 @@ function Foodlist() {
       .then((response) => {
         alert("edit makanan berhasil!");
         console.log(response);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.error(error);
       });
+      getFoodData();
   };
 
   const handleReviewSubmit = (e, id) => {
@@ -118,7 +119,7 @@ function Foodlist() {
       .then((response) => {
         alert("review makanan berhasil!");
         console.log(response);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -143,7 +144,7 @@ function Foodlist() {
         .catch((error) => {
           console.error(error);
         });
-    } getFoodData();
+    }
   };
 
   const handleReview = (id) => {
@@ -159,12 +160,11 @@ function Foodlist() {
       .then((response) => {
         console.log(response);
         // setEditFoodList(response.data);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.error(error);
       });
-      getFoodData();
     // }
   };
 
@@ -194,6 +194,7 @@ function Foodlist() {
           console.error(error);
         });
     }
+    // getFoodData();
   };
 
   const handleLike = (id, isLike) => {
@@ -213,7 +214,7 @@ function Foodlist() {
         .then((response) => {
           console.log(response);
           // alert("like success");
-          window.location.reload();
+          // window.location.reload();
         })
         .catch((error) => {
           console.error(error);
@@ -233,7 +234,7 @@ function Foodlist() {
         .then((response) => {
           console.log(response);
           // alert("unlike success");
-          window.location.reload()
+          // window.location.reload()
         })
         .catch((error) => {
           console.error(error);
@@ -489,14 +490,14 @@ function Foodlist() {
                                   }
                                 />
                                 <button
-                                  className="btn btn-success button_submit"
+                                  className="btn btn-success button_submitModal"
                                   onClick={() => handleAddEditIngredients()}
                                   type="button"
                                 >
                                   Add
                                 </button>
                                 <button
-                                  className="btn btn-danger button_submit"
+                                  className="btn btn-danger button_submitModal"
                                   style={{ marginLeft: "0" }}
                                   onClick={() =>
                                     handleRemoveEditIngredients(index)
@@ -516,7 +517,7 @@ function Foodlist() {
                         <div className="col-12">
                           <button
                             type="submit"
-                            className="btn btn-primary button_submit"
+                            className="btn btn-primary button_submitModal"
                           >
                             Edit Food
                           </button>
@@ -623,7 +624,7 @@ function Foodlist() {
                         <div className="col-12">
                           <button
                             type="submit"
-                            className="btn btn-primary button_submit"
+                            className="btn btn-primary button_submitModal"
                           >
                             Send Review
                           </button>

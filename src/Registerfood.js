@@ -62,6 +62,7 @@ function Registerfood() {
         .then((response) => {
           alert("tambah makanan berhasil!");
           console.log(response);
+          // window.location.reload('/foodlist')
         })
         .catch((error) => {
           console.error(error);
