@@ -7,7 +7,6 @@ import "./starrating.css";
 import "./foodlist.css";
 
 function Foodlist() {
-
   const getFoodData = () => {
     axios({
       method: "get",
@@ -28,7 +27,7 @@ function Foodlist() {
   };
 
   useEffect(() => {
-    getFoodData()
+    getFoodData();
   }, []);
 
   const [foodList, setFoodList] = useState([]);
@@ -61,11 +60,14 @@ function Foodlist() {
       name: "",
       description: "",
       ingredients: [],
+      rating: '',
+      review: "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
       description: Yup.string().required("Required"),
       // ingredients: Yup.string().required('Required'),
+      rating: Yup.number().required("Required"),
     }),
   });
 
@@ -98,6 +100,31 @@ function Foodlist() {
       });
   };
 
+  const handleReviewSubmit = (e, id) => {
+    e.preventDefault();
+    const values = formik.values;
+    axios({
+      method: "post",
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/rate-food/${id}`,
+      headers: {
+        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      data: {
+        rating: parseInt(values.rating),
+        review: values.review,
+      },
+    })
+      .then((response) => {
+        alert("review makanan berhasil!");
+        console.log(response);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleEdit = (id) => {
     if (window.confirm("are you sure you want to edit?")) {
       axios({
@@ -116,6 +143,26 @@ function Foodlist() {
           console.error(error);
         });
     }
+  };
+
+  const handleReview = (id) => {
+    // if (window.confirm("are you sure you want to edit?")) {
+    axios({
+      method: "get",
+      url: `${process.env.REACT_APP_BASE_URL}/api/v1/food-rating/${id}`,
+      headers: {
+        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        // Authorization: `Bearer ${localStorage.getItem(`token`)}`,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        // setEditFoodList(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    // }
   };
 
   // const [editFoodList, setEditFoodList] = useState([]);
@@ -163,7 +210,7 @@ function Foodlist() {
         .then((response) => {
           console.log(response);
           // alert("like success");
-          window.location.reload()
+          window.location.reload();
         })
         .catch((error) => {
           console.error(error);
@@ -189,7 +236,7 @@ function Foodlist() {
           console.error(error);
         });
     }
-    getFoodData()
+    getFoodData();
   };
 
   // rating function
@@ -289,7 +336,7 @@ function Foodlist() {
                             height="16"
                             fill="currentColor"
                             class="bi bi-heart ms-1"
-                            style={{ color: `${item.isLike ? "red" : ""}`}}
+                            style={{ color: `${item.isLike ? "red" : ""}` }}
                             viewBox="0 0 16 16"
                           >
                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
@@ -299,7 +346,17 @@ function Foodlist() {
                       </div>
                     </div>
                     <div className="row">
-                      <div className="col-6">
+                    <div className="col-4">
+                        <button
+                          data-bs-toggle="modal"
+                          data-bs-target={`#reviewModal-${item.id}`}
+                          onClick={() => handleReview(item.id)}
+                          className="btn btn-success button_submit"
+                        >
+                          review
+                        </button>
+                      </div>
+                      <div className="col-4">
                         <button
                           type="button"
                           onClick={() => handleDelete(item.id)}
@@ -308,7 +365,7 @@ function Foodlist() {
                           Delete
                         </button>
                       </div>
-                      <div className="col-6">
+                      <div className="col-4">
                         <button
                           data-bs-toggle="modal"
                           data-bs-target={`#exampleModal-${item.id}`}
@@ -345,54 +402,66 @@ function Foodlist() {
                     <div class="modal-body">
                       <h3 className="input_label">Latest Food Data</h3>
                       <h5 className="input_label">name: {item.name}</h5>
-                      <h5 className="input_label">description: {item.description}</h5>
-                      <h5 className="input_label">ingredients: {item.ingredients}</h5>
+                      <h5 className="input_label">
+                        description: {item.description}
+                      </h5>
+                      <h5 className="input_label">
+                        ingredients: {item.ingredients}
+                      </h5>
                       <img
                         src={item.imageUrl}
                         // style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
                       />
-                      <div className="input_label">========================================
+                      <div className="input_label">
+                        ========================================
                       </div>
                       <form
                         className="row g-3"
                         onSubmit={(e) => handleSubmit(e, item.id)}
                       >
-                          <label for="inputName" className="form-label input_label">
-                            Food Name
-                          </label>
-                          <input
-                            value={formik.values.name}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            type="text"
-                            className="input-group mb-3 input_box"
-                            id="name"
-                          />
+                        <label
+                          for="inputName"
+                          className="form-label input_label"
+                        >
+                          Food Name
+                        </label>
+                        <input
+                          value={formik.values.name}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          type="text"
+                          className="input-group mb-3 input_box"
+                          id="name"
+                        />
                         {formik.touched.name && formik.errors.name ? (
                           <div>{formik.errors.name}</div>
                         ) : null}
-                          <label for="inputAge" className="form-label input_label">
-                            Description
-                          </label>
-                          <input
-                            value={formik.values.description}
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            type="text"
-                            className="input-group mb-3 input_box"
-                            id="description"
-                          />
+                        <label
+                          for="inputAge"
+                          className="form-label input_label"
+                        >
+                          Description
+                        </label>
+                        <input
+                          value={formik.values.description}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          type="text"
+                          className="input-group mb-3 input_box"
+                          id="description"
+                        />
                         {formik.touched.description &&
                         formik.errors.description ? (
                           <div>{formik.errors.description}</div>
                         ) : null}
-                          <label for="inputFoodImage" className="form-label input_label">
-                            Food Image Upload
-                          </label>
-                          <Upload
-                            onChange={(value) => setFileToUpload(value)}
-                          />
+                        <label
+                          for="inputFoodImage"
+                          className="form-label input_label"
+                        >
+                          Food Image Upload
+                        </label>
+                        <Upload onChange={(value) => setFileToUpload(value)} />
                         {ingredients.map((ingredient, index) => {
                           return (
                             <>
@@ -425,7 +494,7 @@ function Foodlist() {
                                 </button>
                                 <button
                                   className="btn btn-danger button_submit"
-                                  style={{marginLeft: "0"}}
+                                  style={{ marginLeft: "0" }}
                                   onClick={() =>
                                     handleRemoveEditIngredients(index)
                                   }
@@ -438,12 +507,122 @@ function Foodlist() {
                               formik.errors.ingredients ? (
                                 <div>{formik.errors.ingredients}</div>
                               ) : null}
-                              </>
+                            </>
                           );
                         })}
                         <div className="col-12">
-                          <button type="submit" className="btn btn-primary button_submit">
+                          <button
+                            type="submit"
+                            className="btn btn-primary button_submit"
+                          >
                             Edit Food
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                    {/* <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                              Edit Food Data
+                            </button>
+                          </div> */}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="modal fade"
+                id={`reviewModal-${item.id}`}
+                tabindex="-1"
+                // aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        do you want to review : {item.id}
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <h3 className="input_label">Latest Food Data</h3>
+                      <h5 className="input_label">name: {item.name}</h5>
+                      <h5 className="input_label">rating: {item.rating}</h5>
+                      <img
+                        src={item.imageUrl}
+                        // style={{ height: "12rem", width: "12rem" }}
+                        alt="food list img"
+                      />
+                      <div className="input_label">
+                        ========================================
+                      </div>
+                      <form
+                        className="row g-3"
+                        onSubmit={(e) => handleReviewSubmit(e, item.id)}
+                      >
+                        <label
+                          for="inputName"
+                          className="form-label input_label"
+                        >
+                          Rating
+                        </label>
+                        <select
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          value={formik.values.rating}
+                          onKeyPress={(event) => {
+                            if (!/[0-9]/.test(event.key)) {
+                              event.preventDefault();
+                            }
+                          }}
+                          component="select"
+                          id="rating"
+                          name="rating"
+                          type="number"
+                          multiple={false}
+                          className="form-select input_box mx-auto"
+                        >
+                          <option selected>Open this select menu</option>
+                          <option value='1'>1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value='5'>5</option>
+                        </select>
+                        <label
+                          for="inputAge"
+                          className="form-label input_label"
+                        >
+                          Review
+                        </label>
+                        <input
+                          value={formik.values.review}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          type="text"
+                          className="input-group mb-3 input_box"
+                          id="review"
+                        />
+                        {formik.touched.review && formik.errors.review ? (
+                          <div>{formik.errors.review}</div>
+                        ) : null}
+                        <div className="col-12">
+                          <button
+                            type="submit"
+                            className="btn btn-primary button_submit"
+                          >
+                            Send Review
                           </button>
                         </div>
                       </form>
