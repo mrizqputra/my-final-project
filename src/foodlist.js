@@ -123,6 +123,7 @@ function Foodlist() {
       .catch((error) => {
         console.error(error);
       });
+      getFoodData();
   };
 
   const handleEdit = (id) => {
@@ -142,7 +143,7 @@ function Foodlist() {
         .catch((error) => {
           console.error(error);
         });
-    }
+    } getFoodData();
   };
 
   const handleReview = (id) => {
@@ -163,7 +164,7 @@ function Foodlist() {
       .catch((error) => {
         console.error(error);
       });
-      // getFoodData();
+      getFoodData();
     // }
   };
 
@@ -238,7 +239,7 @@ function Foodlist() {
           console.error(error);
         });
     }
-    // getFoodData();
+    getFoodData();
   };
 
   // rating function
