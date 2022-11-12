@@ -158,11 +158,12 @@ function Foodlist() {
       .then((response) => {
         console.log(response);
         // setEditFoodList(response.data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error(error);
       });
-      getFoodData();
+      // getFoodData();
     // }
   };
 
@@ -231,13 +232,13 @@ function Foodlist() {
         .then((response) => {
           console.log(response);
           // alert("unlike success");
-          // window.location.reload()
+          window.location.reload()
         })
         .catch((error) => {
           console.error(error);
         });
     }
-    getFoodData();
+    // getFoodData();
   };
 
   // rating function
