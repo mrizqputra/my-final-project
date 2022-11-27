@@ -24,10 +24,10 @@ function App() {
               />
             </div>
             <div className="col-12 col-sm-6 mb-3 px-1">
-              <div className="homeText">
+              <div className="homeText px-2">
                 what your <span className="orange">favorite food?</span>
               </div>
-              <p>
+              <p className="px-2">
                 <span className="orange">
                   In Goody Foody you can add your favorite food on library.
                 </span>
@@ -113,7 +113,7 @@ function App() {
             </div>
           </div>
         </>
-      );
+      )
     }
     return (
       <>
@@ -127,14 +127,14 @@ function App() {
               <span className="orange"> Healthy</span>
               <span className="imgWrap">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <img src={imgBanana} alt="banana" />
+                <img src={imgBanana} alt="banana" className="imgLogo"/>
               </span>
             </div>
             <div className="homeText">
               <span className="orange">& Daily Life</span>
               <span className="imgWrap2">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <img src={imgApple} alt="apple" />
+                <img src={imgApple} alt="apple" className="imgLogo"/>
               </span>
             </div>
             <div className="loRem">
@@ -181,7 +181,6 @@ function App() {
             </div>
           </div>
         </div>
-        ;
       </>
     );
   };

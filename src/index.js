@@ -11,7 +11,7 @@ import Showuser from './Showuser';
 import Registerfood from './Registerfood';
 import Homefood from './homefood';
 // import Breadcrump from './Breadcrump';
-// import Profile from './Profile';
+import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -46,10 +46,10 @@ const router = createBrowserRouter([
         path: "/showuser",
         element: <Showuser />
       },
-      // {
-      //   path: "/profile",
-      //   element: <Profile />
-      // },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
       {
         path: "/registerfood",
         element: <Registerfood />

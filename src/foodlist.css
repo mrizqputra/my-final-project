@@ -42,7 +42,9 @@ gap: 10px;
 /* width: 307px; */
 height: 474px;
 background: #F8F8F8;
-border-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top: 0px;
+border-left: 0px;
 }
 
 .card_list {
@@ -53,8 +55,8 @@ border-radius: 10px;
     /* width: 307px; */
     height: 600px;
     background: #F8F8F8;
-    border-radius: 10px;
-    }
+    border-bottom-right-radius: 10px;
+}
 
     .input_box {
         /* Rectangle 1381 */

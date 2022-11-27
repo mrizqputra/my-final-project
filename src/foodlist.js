@@ -273,7 +273,7 @@ function Foodlist() {
                     <h4 className="card-text">
                       Desciption: {item.description}
                     </h4>
-                    <p className="card-text">ingredients: {item.ingredients}</p>
+                    <p className="card-text">ingredients: {item.ingredients.join(', ')}</p>
                     <div className="row">
                       <div className="col-6 mt-2">Rating: {item.rating}</div>
                       {/* <div className="col-5 flex">
@@ -647,7 +647,7 @@ function Foodlist() {
                 </div>
               </div>
             </>
-          );
+          )
         })}
       </div>
     </div>

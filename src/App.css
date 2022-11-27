@@ -70,7 +70,7 @@
   flex-direction: row;
 }
 
-img {
+.imgLogo {
   vertical-align: 0;
   padding-left: 15%;
 }
@@ -124,4 +124,8 @@ img {
   flex: none;
   order: 1;
   flex-grow: 0;
+}
+
+p {
+  text-align: justify;
 }

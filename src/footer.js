@@ -4,7 +4,7 @@ function Footer() {
     <div className="container-fluid footer text-center ">
       <div className="row grid">
         <div className="col-12 col-sm-6 col-md-4 mb-3 mt-3">
-          Mini Project
+          Final Project
           <br />
           for dibimbing.id on React JS class.
         </div>

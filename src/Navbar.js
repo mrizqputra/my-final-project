@@ -15,22 +15,6 @@ function Navbar() {
       return (
         <>
           <li className="nav-item">
-            <p className="nav-link" style={{ color: "black" }}>
-              <span className="orange">hi</span> {userName}
-            </p>
-          </li>
-          <li className="nav-item">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <Link className="nav-link" onClick={handleLogout}>
-              Logout
-            </Link>
-          </li>
-          {/* <li className="nav-item">
-            <Link to="/register" className="nav-link">
-              Register Member
-            </Link>
-          </li> */}
-          <li className="nav-item">
             <Link to="/foodlist" className="nav-link">
               Food List
             </Link>
@@ -44,6 +28,29 @@ function Navbar() {
             <Link to="/showuser" className="nav-link">
               Show User
             </Link>
+          </li>
+          <li className="nav-item dropdown">
+            <p
+              className="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              style={{ color: "black" }}
+              href="#"
+              role="button"
+            >
+              <span className="orange">hi</span> {userName}
+            </p>
+            <ul className="dropdown-menu">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link to="/profile" className="nav-link">
+                Profile
+              </Link>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <Link className="nav-link" onClick={handleLogout}>
+                Logout
+              </Link>
+            </ul>
           </li>
         </>
       );
@@ -65,7 +72,7 @@ function Navbar() {
       >
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <Link to="/" className="navbar-brand">
-          Goody Foody
+          Goody <span className="orange">Foody</span>
         </Link>
         <button
           className="navbar-toggler"
@@ -86,9 +93,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <ul class="nav justify-content-end mt-2">
-            {renderLoginLogout()}
-          </ul>
+          <ul class="nav justify-content-end mt-2">{renderLoginLogout()}</ul>
         </div>
       </div>
     </div>
