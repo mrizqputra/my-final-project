@@ -1,3 +1,9 @@
+/* import roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* import roboto slab font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -25,4 +31,8 @@ code {
   bottom: 0;
   position: relative;
   /* height: 25vh; */
+}
+
+.h1 {
+  font-family: 'Roboto Slab', serif;
 }

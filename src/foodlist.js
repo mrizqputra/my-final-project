@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Upload from "./Upload";
-import "./starrating.css";
 import "./foodlist.css";
 
 function Foodlist() {
@@ -31,6 +30,7 @@ function Foodlist() {
   }, []);
 
   const [foodList, setFoodList] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
 
   // import images url
   const [fileToUpload, setFileToUpload] = useState("");
@@ -98,7 +98,7 @@ function Foodlist() {
       .catch((error) => {
         console.error(error);
       });
-      getFoodData();
+    getFoodData();
   };
 
   const handleReviewSubmit = (e, id) => {
@@ -124,7 +124,7 @@ function Foodlist() {
       .catch((error) => {
         console.error(error);
       });
-      getFoodData();
+    getFoodData();
   };
 
   const handleEdit = (id) => {
@@ -161,6 +161,7 @@ function Foodlist() {
         console.log(response);
         // setEditFoodList(response.data);
         // window.location.reload();
+        setReviewList(response.data.data);
       })
       .catch((error) => {
         console.error(error);
@@ -243,12 +244,6 @@ function Foodlist() {
     getFoodData();
   };
 
-  // rating function
-  // function myFunction() {
-  //   var five = document.getElementById("1-star").checked;
-  //   document.getElementById("one").innerHTML = five;
-  // }
-
   return (
     <div className="container mb-3">
       <div className="row">
@@ -276,56 +271,7 @@ function Foodlist() {
                     <p className="card-text">ingredients: {item.ingredients.join(', ')}</p>
                     <div className="row">
                       <div className="col-6 mt-2">Rating: {item.rating}</div>
-                      {/* <div className="col-5 flex">
-                        <div class="star-rating">
-                          <input
-                            type="radio"
-                            id="5-stars"
-                            name="rating"
-                            value="5"
-                          />
-                          <label for="5-stars" class="star">
-                            &#9733;
-                          </label>
-                          <input
-                            type="radio"
-                            id="4-stars"
-                            name="rating"
-                            value="4"
-                          />
-                          <label for="4-stars" class="star">
-                            &#9733;
-                          </label>
-                          <input
-                            type="radio"
-                            id="3-stars"
-                            name="rating"
-                            value="3"
-                          />
-                          <label for="3-stars" class="star">
-                            &#9733;
-                          </label>
-                          <input
-                            type="radio"
-                            id="2-stars"
-                            name="rating"
-                            value="2"
-                          />
-                          <label for="2-stars" class="star">
-                            &#9733;
-                          </label>
-                          <input
-                            type="radio"
-                            id="1-star"
-                            name="rating"
-                            value="1"
-                          />
-                          <label for="1-star" class="star">
-                            &#9733;
-                          </label>
-                          <p id="one" onclick={myFunction}></p>
-                        </div>
-                      </div> */}
+
                       <div className="col-6 flex">
                         <button
                           className="btn"
@@ -350,7 +296,7 @@ function Foodlist() {
                       </div>
                     </div>
                     <div className="row">
-                    <div className="col-4">
+                      <div className="col-4">
                         <button
                           data-bs-toggle="modal"
                           data-bs-target={`#reviewModal-${item.id}`}
@@ -456,7 +402,7 @@ function Foodlist() {
                           id="description"
                         />
                         {formik.touched.description &&
-                        formik.errors.description ? (
+                          formik.errors.description ? (
                           <div>{formik.errors.description}</div>
                         ) : null}
                         <label
@@ -508,7 +454,7 @@ function Foodlist() {
                                 </button>
                               </div>
                               {formik.touched.ingredients &&
-                              formik.errors.ingredients ? (
+                                formik.errors.ingredients ? (
                                 <div>{formik.errors.ingredients}</div>
                               ) : null}
                             </>
@@ -518,24 +464,13 @@ function Foodlist() {
                           <button
                             type="submit"
                             className="btn btn-primary button_submitModal"
+                            data-bs-dismiss="modal"
                           >
                             Edit Food
                           </button>
                         </div>
                       </form>
                     </div>
-                    {/* <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                              Edit Food Data
-                            </button>
-                          </div> */}
                   </div>
                 </div>
               </div>
@@ -543,8 +478,6 @@ function Foodlist() {
                 class="modal fade"
                 id={`reviewModal-${item.id}`}
                 tabindex="-1"
-                // aria-labelledby="exampleModalLabel"
-                // aria-hidden="true"
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -567,7 +500,26 @@ function Foodlist() {
                         src={item.imageUrl}
                         style={{ height: "12rem", width: "12rem" }}
                         alt="food list img"
+                        className="input_label"
                       />
+                      {reviewList.map((item) => {
+                        console.log(item);
+                        return (
+                          <div className="container">
+                            <div className="row input_label">
+                              <div className="col-md-3">
+                                              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <img className="img-fluid" src={item.user.profilePictureUrl} alt="reviewer" />
+                                <div className="h6">{item.user.name}</div>
+                              </div>
+                              <div className="col-md-9">
+                                <div className="h4">{item.review}</div>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
+                      )}
                       <div className="input_label">
                         ========================================
                       </div>
@@ -603,7 +555,8 @@ function Foodlist() {
                           <option value="3">3</option>
                           <option value="4">4</option>
                           <option value='5'>5</option>
-                        </select>
+                      </select>
+
                         <label
                           for="inputAge"
                           className="form-label input_label"
@@ -625,24 +578,13 @@ function Foodlist() {
                           <button
                             type="submit"
                             className="btn btn-primary button_submitModal"
+                            data-bs-dismiss="modal"
                           >
                             Send Review
                           </button>
                         </div>
                       </form>
                     </div>
-                    {/* <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-secondary"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                              Edit Food Data
-                            </button>
-                          </div> */}
                   </div>
                 </div>
               </div>

@@ -15,98 +15,92 @@ function App() {
     if (localStorage.getItem("token")) {
       return (
         <>
-          <div className="row">
-            <div className="col-12 col-sm-6 mb-3 px-1">
-              <img
-                className="homeImgLogin image-fluid"
-                src={regisFood}
-                alt="homeImgLogin"
-              />
+          <div className="row mb-3">
+            <div className="col-sm-12 col-md-6 mb-3 px-1">
+              <div className="container-fluid text-center">
+                <img
+                  className="image-fluid mx-auto imgHomeLogin"
+                  src={regisFood}
+                  alt="homeImgLogin"
+                />
+              </div>
             </div>
-            <div className="col-12 col-sm-6 mb-3 px-1">
-              <div className="homeText px-2">
+            <div className="col-sm-12 col-md-6 mb-3 px-1">
+              <div className="container-fluid">
+              <div className="h1 px-2">
                 what your <span className="orange">favorite food?</span>
               </div>
-              <p className="px-2">
+              <div className="h5 px-2 justify-text">
                 <span className="orange">
-                  In Goody Foody you can add your favorite food on library.
+                  In Goody Foody you can add your favorite food on library. 
                 </span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque suscipit eros et euismod porttitor. Aliquam erat
                 volutpat. Vestibulum libero nisi, commodo volutpat aliquet at,
                 aliquet quis diam. Curabitur sit amet ullamcorper nunc. In nec
                 luctus dui. Aliquam euismod sapien et mi molestie, in gravida
                 velit malesuada. Pellentesque eu finibus urna. Curabitur sit
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
-                commodo tincidunt. Donec dignissim mauris sit amet diam
-                consectetur hendrerit. Maecenas metus quam, hendrerit et ipsum
-                non, consectetur sodales enim. Curabitur sit amet nibh non ipsum
-                malesuada iaculis. Nulla facilisi. Pellentesque tincidunt
-                tincidunt luctus. Sed in eleifend ipsum. Nam ex nunc, dignissim
-                at imperdiet eu, varius vel tortor.
-              </p>
+                commodo tincidunt.
+              </div>
               <Link to="/registerfood" className="homeButton ms-3">
                 Register Food
               </Link>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-12 col-sm-6 mb-3 order-1 order-sm-2 px-1">
-              <img className="homeImgLogin image-fluid" src={seeFood} alt="homeImgLogin" />
             </div>
-            <div className="col-12 col-sm-6 mb-3 order-2 order-sm-1 px-1">
-            <div className="homeText">
+          </div>
+          <div className="row mb-3">
+            <div className="col-sm-12 col-md-6 mb-3 order-md-2 px-1">
+              <div className="container text-center">
+                <img className="image-fluid mx-auto" src={seeFood} alt="homeImgLogin" />
+              </div>
+            </div>
+            <div className="col-sm-12 col-md-6 mb-3 order-md-1 px-1">
+              <div className="container-fluid">
+              <div className="h1 px-2">
                 what Goody Foody <span className="orange">inside?</span>
               </div>
-              <p>
+              <div className="h5 px-2 justify-text">
                 <span className="orange">
-                  Goody Foody have a delicious and interest food on Goody Foody library.
+                  Goody Foody have a delicious and interest food on Goody Foody library. 
                 </span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque suscipit eros et euismod porttitor. Aliquam erat
                 volutpat. Vestibulum libero nisi, commodo volutpat aliquet at,
                 aliquet quis diam. Curabitur sit amet ullamcorper nunc. In nec
                 luctus dui. Aliquam euismod sapien et mi molestie, in gravida
                 velit malesuada. Pellentesque eu finibus urna. Curabitur sit
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
-                commodo tincidunt. Donec dignissim mauris sit amet diam
-                consectetur hendrerit. Maecenas metus quam, hendrerit et ipsum
-                non, consectetur sodales enim. Curabitur sit amet nibh non ipsum
-                malesuada iaculis. Nulla facilisi. Pellentesque tincidunt
-                tincidunt luctus. Sed in eleifend ipsum. Nam ex nunc, dignissim
-                at imperdiet eu, varius vel tortor.
-              </p>
+                commodo tincidunt.
+              </div>
               <Link to="/foodlist" className="homeButton ms-3">
                 Food List
               </Link>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-12 col-sm-6 mb-3 px-1">
-              <img className="homeImgLogin image-fluid" src={seeUser} alt="homeImgLogin" />
             </div>
-            <div className="col-12 col-sm-6 mb-3 px-1">
-            <div className="homeText">
+          </div>
+          <div className="row mb-3">
+            <div className="col-sm-12 col-md-6 mb-3 px-1">
+              <div className="container text-center">
+                <img className="image-fluid mx-auto" src={seeUser} alt="homeImgLogin" />
+              </div></div>
+            <div className="col-sm-12 col-md-6 mb-3 px-1">
+              <div className="h1 px-2">
                 who use <span className="orange">Goody Foody?</span>
               </div>
-              <p>
+              <div className="h5 px-2 justify-text">
                 <span className="orange">
-                  Some people use Goody Foody for cooking inspiration or relaxing the eye for seeing food.
+                  Some people use Goody Foody for cooking inspiration or relaxing the eye for seeing food. 
                 </span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Pellentesque suscipit eros et euismod porttitor. Aliquam erat
                 volutpat. Vestibulum libero nisi, commodo volutpat aliquet at,
                 aliquet quis diam. Curabitur sit amet ullamcorper nunc. In nec
                 luctus dui. Aliquam euismod sapien et mi molestie, in gravida
                 velit malesuada. Pellentesque eu finibus urna. Curabitur sit
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
-                commodo tincidunt. Donec dignissim mauris sit amet diam
-                consectetur hendrerit. Maecenas metus quam, hendrerit et ipsum
-                non, consectetur sodales enim. Curabitur sit amet nibh non ipsum
-                malesuada iaculis. Nulla facilisi. Pellentesque tincidunt
-                tincidunt luctus. Sed in eleifend ipsum. Nam ex nunc, dignissim
-                at imperdiet eu, varius vel tortor.
-              </p>
+                commodo tincidunt.
+              </div>
               <Link to="/showuser" className="homeButton ms-3">
                 Show User
               </Link>
@@ -127,14 +121,14 @@ function App() {
               <span className="orange"> Healthy</span>
               <span className="imgWrap">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <img src={imgBanana} alt="banana" className="imgLogo"/>
+                <img src={imgBanana} alt="banana" className="imgLogo" />
               </span>
             </div>
             <div className="homeText">
               <span className="orange">& Daily Life</span>
               <span className="imgWrap2">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <img src={imgApple} alt="apple" className="imgLogo"/>
+                <img src={imgApple} alt="apple" className="imgLogo" />
               </span>
             </div>
             <div className="loRem">

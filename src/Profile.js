@@ -6,6 +6,7 @@ import Upload from "./Upload";
 
 function Profile() {
   const [profileGet, setProfileGet] = useState([]);
+  // const [profilId, setProfileId] = useState('');
 
   const [fileToUpload, setFileToUpload] = useState("");
 
@@ -21,6 +22,7 @@ function Profile() {
       .then(function (response) {
         console.log(response);
         setProfileGet(response.data.user);
+        // setProfileId(response.data.user.id);
       })
       .catch(function (error) {
         console.error(error);
@@ -40,10 +42,10 @@ function Profile() {
       phoneNumberEdit: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string()
+      // name: Yup.string()
         //   .min(6, 'Must be 6 characters or more')
         //   .max(15, 'Must be 15 characters or less')
-        .required("Required"),
+        // .required("Required"),
       // email: Yup.string()
       //   .required('Required'),
       // password: Yup.string()
@@ -280,6 +282,7 @@ function Profile() {
                         <button
                           type="submit"
                           className="btn btn-primary button_login"
+                          data-bs-dismiss="modal"
                         >
                           Submit
                         </button>
@@ -290,7 +293,7 @@ function Profile() {
               </div>
             </div>
           </div>
-          {/* <!-- Modal --> */}
+          {/* <!-- Role Modal --> */}
           <div
             class="modal fade"
             id={`roleModal-${profileGet.id}`}
@@ -302,7 +305,7 @@ function Profile() {
               <div class="modal-content">
                 <div class="modal-header">
                   <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    edit your role
+                    edit your role: {profileGet.id}
                   </h1>
                   <button
                     type="button"
@@ -313,7 +316,7 @@ function Profile() {
                 </div>
                 <div class="modal-body">
                   <div className="container-fluid">
-                    <form onSubmit={handleRole}>
+                    <form onSubmit={(e) => handleRole(e, profileGet.id)}>
                       <div className="container-fluid">
                         <div className="mb-3">
                           <label
@@ -339,6 +342,7 @@ function Profile() {
                           <button
                             type="submit"
                             className="btn btn-primary button_login"
+                            data-bs-dismiss="modal"
                           >
                             Submit
                           </button>
