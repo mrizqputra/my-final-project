@@ -10,7 +10,7 @@ import Foodlist from './foodlist';
 import Showuser from './Showuser';
 import Registerfood from './Registerfood';
 import Homefood from './homefood';
-// import Breadcrump from './Breadcrump';
+import Breadcrumb from './Breadcrumb';
 import Profile from './Profile';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -39,16 +39,16 @@ const router = createBrowserRouter([
       {
         path: "/foodlist",
         element: <>
-        {/* <Breadcrump/> */}
+        <Breadcrumb/>
         <Foodlist /></>
       },
       {
         path: "/showuser",
-        element: <Showuser />
+        element: <><Breadcrumb/><Showuser /></>
       },
       {
         path: "/profile",
-        element: <Profile />
+        element: <><Breadcrumb/><Profile /></>
       },
       {
         path: "/registerfood",

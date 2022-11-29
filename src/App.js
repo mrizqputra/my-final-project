@@ -52,7 +52,7 @@ function App() {
           <div className="row mb-3">
             <div className="col-sm-12 col-md-6 mb-3 order-md-2 px-1">
               <div className="container text-center">
-                <img className="image-fluid mx-auto" src={seeFood} alt="homeImgLogin" />
+                <img className="image-fluid mx-auto imgHomeLogin" src={seeFood} alt="homeImgLogin" />
               </div>
             </div>
             <div className="col-sm-12 col-md-6 mb-3 order-md-1 px-1">
@@ -82,7 +82,7 @@ function App() {
           <div className="row mb-3">
             <div className="col-sm-12 col-md-6 mb-3 px-1">
               <div className="container text-center">
-                <img className="image-fluid mx-auto" src={seeUser} alt="homeImgLogin" />
+                <img className="image-fluid mx-auto imgHomeLogin" src={seeUser} alt="homeImgLogin" />
               </div></div>
             <div className="col-sm-12 col-md-6 mb-3 px-1">
               <div className="h1 px-2">
@@ -112,26 +112,26 @@ function App() {
     return (
       <>
         <div className="row">
-          <div className="col-12 col-sm-6 mb-3">
-            <div className="homeText">
+          <div className="col-12 col-sm-6 mb-5 text-width">
+            <div className="h1 mb-4">
               Premium <span className="orange">Quality</span>
             </div>
-            <div className="homeText">
+            <div className="h1 mb-4">
               Food for Your
               <span className="orange"> Healthy</span>
               <span className="imgWrap">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <img src={imgBanana} alt="banana" className="imgLogo" />
+                <img src={imgBanana} alt="banana" className="imgLogo1" />
               </span>
             </div>
-            <div className="homeText">
+            <div className="h1 mb-4">
               <span className="orange">& Daily Life</span>
               <span className="imgWrap2">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <img src={imgApple} alt="apple" className="imgLogo" />
               </span>
             </div>
-            <div className="loRem">
+            <div className="h4 mt-5 mb-3 justify-text">
               Goody Foody is food journal, can be used for manage your daily
               food and collect them to favourite menus.
             </div>
@@ -158,7 +158,7 @@ function App() {
                 <div className="row">
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <img
-                    className="rectangle2 img-fluid"
+                    className="rectangle2 img-fluid mt-3 mb-2"
                     src={Rectangle2}
                     alt="rectangel_2"
                   ></img>

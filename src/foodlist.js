@@ -318,7 +318,7 @@ function Foodlist() {
                       <div className="col-4">
                         <button
                           data-bs-toggle="modal"
-                          data-bs-target={`#exampleModal-${item.id}`}
+                          data-bs-target={`#editFoodModal-${item.id}`}
                           onClick={() => handleEdit(item.id)}
                           className="btn btn-warning button_submit"
                         >
@@ -331,10 +331,10 @@ function Foodlist() {
               </div>
               <div
                 class="modal fade"
-                id={`exampleModal-${item.id}`}
+                id={`editFoodModal-${item.id}`}
                 tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
+                // aria-labelledby="exampleModalLabel"
+                // aria-hidden="true"
               >
                 <div class="modal-dialog">
                   <div class="modal-content">

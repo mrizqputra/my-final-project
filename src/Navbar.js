@@ -7,7 +7,6 @@ function Navbar() {
 
     if (localStorage.getItem("token") || localStorage.getItem("email")) {
       const handleLogout = () => {
-        // TODO: jangan lupa delete session movieDBnya juga
         localStorage.removeItem("token");
         localStorage.removeItem("email");
         window.location.href = "/";
