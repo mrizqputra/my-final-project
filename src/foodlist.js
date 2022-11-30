@@ -60,7 +60,7 @@ function Foodlist() {
       name: "",
       description: "",
       ingredients: [],
-      rating: '',
+      rating: "",
       review: "",
     },
     validationSchema: Yup.object({
@@ -251,34 +251,60 @@ function Foodlist() {
           console.log(item);
           return (
             <>
-              <div className="col-6 col-md-3 p-3">
-                <div className="card_list">
+              <div className="col-md-12 col-lg-6 p-3 mb-3">
+                <div className="card_foodlist">
                   <div className="card-body">
-                    {/* <h5 className="card-title">{item.name}</h5> */}
-                    <h6 className="card-subtitle mb-2 text-muted">
-                      ID: {item.id}
-                    </h6>
-                    <img
-                      className="foodlist_img"
-                      src={item.imageUrl}
-                      style={{ height: "12rem", width: "12rem" }}
-                      alt="food list img"
-                    />
-                    <h3 className="card-text">{item.name}</h3>
-                    <h4 className="card-text">
-                      Desciption: {item.description}
-                    </h4>
-                    <p className="card-text">ingredients: {item.ingredients.join(', ')}</p>
+                    <div className="row mb-3">
+                      <div className="mb-3 mt-4 col-sm-12 mb-sm-3 col-md-4 col-lg-4 text-center">
+                        <img
+                          className="foodlist_img img-fluid"
+                          src={item.imageUrl}
+                          // style={{ height: "12rem", width: "12rem" }}
+                          alt="foodlist-img"
+                        />
+                      </div>
+                      <div className=" mt-4 col-sm-12 col-md-8 col-lg-8">
+                        <div className="row">
+                          <div className="col-1 col-sm-1 col-md-1 col-lg-1">
+                            <div className="h6">ID:</div>
+                          </div>
+                          <div className="col-11 col-sm-11 col-md-11 col-lg-10">
+                            <div className="h6">{item.id}</div>
+                          </div>
+                        </div>
+                        <div className="card-text h4 fw-bold">
+                          <span className="orange">{item.name}</span>
+                        </div>
+                        <div className="row">
+                          <div className="col-3 col-sm-3 col-md-3 col-lg-4">
+                            <div className="card-text h6">Description:</div>
+                          </div>
+                          <div className="col-9 col-sm-9 col-md-9 col-lg-8">
+                            <div className="card-text h6">
+                              {item.description}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="row">
+                          <div className="col-3 col-sm-3 col-md-3 col-lg-4">
+                            <div className="card-text h6">Ingredients:</div>
+                          </div>
+                          <div className="col-9 col-sm-9 col-md-9 col-lg-8">
+                            <div className="card-text h6">
+                              {item.ingredients.join(", ")}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div className="row">
                       <div className="col-6 mt-2">Rating: {item.rating}</div>
-
-                      <div className="col-6 flex">
+                      <div className="col-6">
                         <button
                           className="btn"
                           onClick={() => handleLike(item.id, item.isLike)}
                           type="button"
                         >
-                          {/* <p className="card-text"> */}
                           {item.totalLikes}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -295,7 +321,7 @@ function Foodlist() {
                         </button>
                       </div>
                     </div>
-                    <div className="row">
+                    <div className="row mb-4">
                       <div className="col-4">
                         <button
                           data-bs-toggle="modal"
@@ -402,7 +428,7 @@ function Foodlist() {
                           id="description"
                         />
                         {formik.touched.description &&
-                          formik.errors.description ? (
+                        formik.errors.description ? (
                           <div>{formik.errors.description}</div>
                         ) : null}
                         <label
@@ -454,7 +480,7 @@ function Foodlist() {
                                 </button>
                               </div>
                               {formik.touched.ingredients &&
-                                formik.errors.ingredients ? (
+                              formik.errors.ingredients ? (
                                 <div>{formik.errors.ingredients}</div>
                               ) : null}
                             </>
@@ -508,8 +534,12 @@ function Foodlist() {
                           <div className="container">
                             <div className="row input_label">
                               <div className="col-md-3">
-                                              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                <img className="img-fluid" src={item.user.profilePictureUrl} alt="reviewer" />
+                                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                                <img
+                                  className="img-fluid"
+                                  src={item.user.profilePictureUrl}
+                                  alt="reviewer"
+                                />
                                 <div className="h6">{item.user.name}</div>
                               </div>
                               <div className="col-md-9">
@@ -518,8 +548,7 @@ function Foodlist() {
                             </div>
                           </div>
                         );
-                      }
-                      )}
+                      })}
                       <div className="input_label">
                         ========================================
                       </div>
@@ -550,12 +579,12 @@ function Foodlist() {
                           className="form-select input_box mx-auto"
                         >
                           <option selected>Open this select menu</option>
-                          <option value='1'>1</option>
+                          <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                           <option value="4">4</option>
-                          <option value='5'>5</option>
-                      </select>
+                          <option value="5">5</option>
+                        </select>
 
                         <label
                           for="inputAge"
@@ -589,7 +618,7 @@ function Foodlist() {
                 </div>
               </div>
             </>
-          )
+          );
         })}
       </div>
     </div>
