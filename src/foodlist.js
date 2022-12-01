@@ -264,18 +264,10 @@ function Foodlist() {
                         />
                       </div>
                       <div className="shadow bg-light rounded py-2 mt-4 col-sm-12 col-md-8 col-lg-8">
-                        <div className="bg-body rounded shadow py-2 px-3 card-text h4 fw-bold">
+                        <div className="py-2 px-3 card-text h4 fw-bold text-center">
                           <span className="orange">{item.name}</span>
                         </div>
-                        {/* <div className="row">
-                          <div className="col-1 col-sm-1 col-md-1 col-lg-1">
-                            <div className="h6">ID:</div>
-                          </div>
-                          <div className="col-11 col-sm-11 col-md-11 col-lg-10">
-                            <div className="h6">{item.id}</div>
-                          </div>
-                        </div> */}
-                        <div className="row">
+                        <div className="row mb-1">
                           <div className="col-3 col-sm-3 col-md-3 col-lg-4">
                             <div className="card-text h6">Description:</div>
                           </div>
@@ -285,7 +277,7 @@ function Foodlist() {
                             </div>
                           </div>
                         </div>
-                        <div className="row">
+                        <div className="row mb-3">
                           <div className="col-3 col-sm-3 col-md-3 col-lg-4">
                             <div className="card-text h6">Ingredients:</div>
                           </div>
@@ -295,12 +287,12 @@ function Foodlist() {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="row bg-light rounded shadow mb-3">
+                        <div className="row mb-3 text-center">
                       <div className="col-6">Rating: {item.rating}</div>
                       <div className="col-4">
                         <div className="h6">Total likes: {item.totalLikes}</div>
+                      </div>
+                    </div>
                       </div>
                     </div>
                     <div className="row mb-4 text-center">

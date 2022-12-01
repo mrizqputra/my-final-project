@@ -4,7 +4,7 @@
     padding: 25px;
     gap: 10px;
     /* width: 307px; */
-    height: 520px;
+    height: 38vh;
     background: #f0f0f0;
     border-bottom-right-radius: 10px;
     border-top: 0px;
@@ -18,9 +18,9 @@
     opacity: 90%;
 }
 
-@media only screen and (min-width: 420px) {
+@media only screen and (max-width: 420px) {
     .cardHome {
-        height: 50vh;
+        height: 40vh;
     }
 
     .card .h6 {

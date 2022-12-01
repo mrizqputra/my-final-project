@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import "./homefood.css";
 
 function Homefood() {
@@ -28,48 +29,51 @@ function Homefood() {
   // when token is on localStorage, this function will be called or not
   const renderGetFood = () => {
     if (localStorage.getItem("token")) {
-      return null
+      return null;
     }
     return (
       <>
         <div className="text-center">
           <h3>
             <span className="orange">
-              <u>This is Food at Goody Foody</u>
+              <u>below is food on Goody Foody library</u>
             </span>
           </h3>
         </div>
         <div className="row">
-          {foodList.slice(0, 4)
-            .map((item) => {
-              console.log(item);
-              return (
-                <>
-                  <div className="col-6 col-md-3 p-1">
-                    <div className="cardHome">
-                      <div className="card-body">
-                        <div className="card-title h5">{item.name}</div>
-                        <img
-                          className="foodlist_img img-fluid"
-                          src={item.imageUrl}
-                          style={{ height: "12rem", width: "12rem" }}
-                          alt="food list img"
-                        />
-                        <div className="card-text h6">{item.name}</div>
-                        <div className="card-text h6">
-                          Desciption: {item.description}
-                        </div>
-                        <div className="card-text h6">
-                          ingredients: {item.ingredients.join(", ")}
-                        </div>
-                      </div>
+          {foodList.slice(0, 8).map((item) => {
+            console.log(item);
+            return (
+              <>
+                <div className="col-6 col-md-3 p-1">
+                  <div className="cardHome">
+                    <div className="card-body">
+                      <img
+                        className="foodlist_img img-fluid"
+                        src={item.imageUrl}
+                        style={{ height: "12rem", width: "12rem" }}
+                        alt="food list img"
+                      />
+                      <div className="card-text h6">{item.name}</div>
                     </div>
                   </div>
-                </>
-              )
-            })
-            // code for limiting the number of data items
-            }
+                </div>
+              </>
+            );
+          })}
+        </div>
+        <div className="text-center my-3">
+          <h3>
+            please{" "}
+            <span className="orange">
+              <Link to='/login' className="orange text-decoration-none">login</Link>
+            </span>{" "}
+            or{" "}
+            <span className="orange">
+              <Link to='/register' className="orange text-decoration-none">sign up</Link>
+            </span>{" "}
+            to explorer
+          </h3>
         </div>
       </>
     );

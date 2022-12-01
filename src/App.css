@@ -27,10 +27,17 @@
 
 }
 
-/* .imgLogo {
+.imgLogo1 {
+  height: 5vh;
+  margin-left: 7px;
+  position: absolute;
+}
+
+.imgLogo {
+  height: 7vh;
   vertical-align: 0;
-  padding-left: 15%;
-} */
+  padding-top: 30%;
+}
 
 .imgWrap2 {
   display: inline;
