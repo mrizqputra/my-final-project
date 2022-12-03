@@ -14,13 +14,13 @@ function Navbar() {
       return (
         <>
           <li className="nav-item">
-            <Link to="/foodlist" className="nav-link">
-              Food List
+            <Link to="/registerfood" className="nav-link">
+              Register Food
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/registerfood" className="nav-link">
-              Register Food
+            <Link to="/foodlist" className="nav-link">
+              Food List
             </Link>
           </li>
           <li className="nav-item">

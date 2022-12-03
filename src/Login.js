@@ -70,7 +70,7 @@ const Login = () => {
         className="input-group mb-3 input_box mx-auto"
       />
       {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
+        <div className="input_label">{formik.errors.email}</div>
       ) : null}
       <br></br>
       <label htmlFor="password" className="input_label">Password</label>
@@ -84,7 +84,7 @@ const Login = () => {
         className="input-group mb-3 input_box mx-auto"
       />
       {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
+        <div className="input_label">{formik.errors.password}</div>
       ) : null}
       <br></br>
       <button type="submit" className="btn btn-primary button_login">

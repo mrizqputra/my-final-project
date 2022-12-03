@@ -124,7 +124,7 @@ function Profile() {
   return (
     <div className="container mb-3 ">
       <div className="p-3 mb-3 ">
-        <div className="card_profile shadow ">
+        <div className="card_profile shadow rounded">
           <div className="card-body px-5 py-3">
             <div className="row mb-3">
               <div className="mb-2 mt-4 col-sm-12 mb-sm-3 col-md-4 col-lg-4 text-center">

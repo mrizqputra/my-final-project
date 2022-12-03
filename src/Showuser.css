@@ -1,13 +1,13 @@
 .user_img {
-    /* width: 256px;
+  /* width: 256px;
 height: 256px; */
 
-border-radius: 10px;
-padding-left: 0;
+  border-radius: 10px;
+  padding-left: 0;
 
-/* Inside auto layout */
+  /* Inside auto layout */
 
-/* flex: none;
+  /* flex: none;
 order: 0;
 flex-grow: 0; */
 }
@@ -33,3 +33,16 @@ border-radius: 10px;
     background: #F8F8F8;
     border-radius: 10px;
     } */
+
+.card_user {
+  padding: 1%;
+  background: #fdfafa;
+  border-bottom-right-radius: 10px;
+  border-right: 2px solid #414141;
+  border-bottom: 2px solid #414141;
+}
+
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 767px) {
+}

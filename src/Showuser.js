@@ -128,7 +128,7 @@ function Showuser() {
           console.log(item);
           return (
             <div className="col-md-12 col-lg-6 p-3 mb-3">
-              <div className="card_foodlist shadow-sm">
+              <div className="card_user shadow-sm">
                 <div className="card-body px-3">
                   <div className="row mb-3">
                     <div className="mb-2 mt-4 col-sm-12 mb-sm-3 col-md-4 col-lg-4 text-center">
@@ -141,7 +141,7 @@ function Showuser() {
                     </div>
                     {/* <h5 className="card-title">{item.name}</h5> */}
                     <div className="mb-3 shadow bg-light rounded py-2 mt-4 col-sm-12 col-md-8 col-lg-8">
-                      <div className="card-subtitle h6 mb-2 text-muted">
+                      <div className="card-subtitle h6 mb-3 text-muted">
                         ID: {item.id}
                       </div>
                       <div className="mb-2 y-2 px-3 card-text h4 fw-bold text-center">
@@ -163,7 +163,7 @@ function Showuser() {
                           <div className="card-text h6">{item.role}</div>
                         </div>
                       </div>
-                      <div className="row mb-2">
+                      <div className="row mb-4">
                         <div className="col-3 col-sm-3 col-md-3 col-lg-4">
                           <div className="card-text h6">phone number:</div>
                         </div>
@@ -172,7 +172,7 @@ function Showuser() {
                         </div>
                       </div>
                       <div className="row mb-4 text-center">
-                        <div className="col-4">
+                        <div className="col-6">
                           <button
                             type="button"
                             className="btn btn-primary button_submit"
@@ -182,7 +182,7 @@ function Showuser() {
                             Edit Profile
                           </button>
                         </div>
-                        <div className="col-4">
+                        <div className="col-6">
                           <button
                             type="button"
                             onClick={() => handleRole(item.id)}

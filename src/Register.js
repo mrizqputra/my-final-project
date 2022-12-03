@@ -25,18 +25,18 @@ const Register = () => {
         .required('Required'),
       // email: Yup.string()
       //   .required('Required'),
-      // password: Yup.string()
-      //   .min(8, 'Must be 8 characters or more')
+      password: Yup.string()
+        .min(6, 'Must be 6 characters or more')
       //   .max(20, 'Must be 20 characters or less')
-      //   .required('Required'),
-      // passwordRepeat: Yup.string()
-      //   .min(8, 'Must be 8 characters or more')
+        .required('Required'),
+      passwordRepeat: Yup.string()
+        .min(6, 'Must be 6 characters or more')
       //   .max(20, 'Must be 20 characters or less')
-      //   .required('Required'),
-      // role: Yup.object()
-      //   .required('Required'),
-      // phoneNumber: Yup.string()
-      //   .required('Required')
+        .required('Required'),
+      role: Yup.object()
+        .required('Required'),
+      phoneNumber: Yup.string()
+        .required('Required')
     }),
     onSubmit: values => {
       console.log(fileToUpload)
@@ -58,6 +58,7 @@ const Register = () => {
       })
       .then(res => {
         alert('Registrasi berhasil! silahkan login')
+        window.location.href = "/";
       }).catch(e => {
         alert('register belum berhasil!')
       })
@@ -87,7 +88,7 @@ return (
         />
         {/* check error or not */}
         {formik.touched.username && formik.errors.username ? (
-          <div>{formik.errors.username}</div>
+          <div className="input_label">{formik.errors.username}</div>
         ) : null}
       </div>
       <div className="mb-3">
@@ -105,7 +106,7 @@ return (
         />
         {/* check error or not */}
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
+          <div className="input_label">{formik.errors.email}</div>
         ) : null}
       </div>
       <div className="mb-3">
@@ -123,7 +124,7 @@ return (
         />
         {/* check error or not */}
         {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
+          <div className="input_label">{formik.errors.password}</div>
         ) : null}
       </div>
       <div className="mb-3">
@@ -141,7 +142,7 @@ return (
         />
         {/* check error or not */}
         {formik.touched.passwordRepeat && formik.errors.passwordRepeat ? (
-          <div>{formik.errors.passwordRepeat}</div>
+          <div className="input_label">{formik.errors.passwordRepeat}</div>
         ) : null}
       </div>
       <div className="mb-3">
@@ -178,7 +179,7 @@ return (
         />
         {/* check error or not */}
         {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-          <div>{formik.errors.phoneNumber}</div>
+          <div className="input_label">{formik.errors.phoneNumber}</div>
         ) : null}
       </div>
       <div className="mb-3 ">

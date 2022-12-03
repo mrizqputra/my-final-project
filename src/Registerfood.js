@@ -31,6 +31,43 @@ function Registerfood() {
     setIngredients(values);
   };
 
+  const removeBtn = (index) => {
+      if (index === 0) {
+        return (
+          <>
+            {" "}
+            <button
+              className="btn btn-success button_login"
+              onClick={() => handleAddIngredients()}
+              type="button"
+            >
+              Add
+            </button>
+          </>
+        );
+      }
+      if (index >= 1) {
+        return (
+          <>
+            <button
+              className="btn btn-success button_login"
+              onClick={() => handleAddIngredients()}
+              type="button"
+            >
+              Add
+            </button>
+            <button
+              className="btn btn-danger button_delete"
+              onClick={() => handleRemoveIngredients(index)}
+              type="button"
+            >
+              Delete
+            </button>
+          </>
+        );
+      }
+    }
+  
   // formik for add food data
   const formik = useFormik({
     initialValues: {
@@ -41,7 +78,7 @@ function Registerfood() {
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
       description: Yup.string().required("Required"),
-      // ingredients: Yup.string().required('Required'),
+      // ingredients: Yup.object(['']).required("Required"),
     }),
     onSubmit: (values) => {
       console.log(fileToUpload);
@@ -60,11 +97,12 @@ function Registerfood() {
         },
       })
         .then((response) => {
-          alert("tambah makanan berhasil!");
+          alert("adding food success!");
           console.log(response);
-          // window.location.reload('/foodlist')
+          window.location.href = "/foodlist";
         })
         .catch((error) => {
+          alert("adding food not success! check your food value");
           console.error(error);
         });
     },
@@ -93,7 +131,7 @@ function Registerfood() {
                 id="name"
               />
               {formik.touched.name && formik.errors.name ? (
-                <div>{formik.errors.name}</div>
+                <div className="input_label">{formik.errors.name}</div>
               ) : null}
             </div>
             <div className="mb-3">
@@ -109,7 +147,7 @@ function Registerfood() {
                 id="description"
               />
               {formik.touched.description && formik.errors.description ? (
-                <div>{formik.errors.description}</div>
+                <div className="input_label">{formik.errors.description}</div>
               ) : null}
             </div>
             <div className="mb-3">
@@ -122,41 +160,44 @@ function Registerfood() {
               return (
                 <>
                   <div className="mb-3">
-                  <label
-                    for="inputIngredient"
-                    className="form-label input_label"
-                  >
-                    Ingredients
-                  </label>
-                  <div className="container-fluid">
-                    <input
-                      onBlur={formik.handleBlur}
-                      type="text"
-                      className="input-group mb-3 input_box mx-auto"
-                      id="ingredients"
-                      value={ingredient}
-                      onChange={(event) =>
-                        handleCHangeIngredients(index, event.target.value)
-                      }
-                    />
-                    <button
-                      className="btn btn-success button_login"
-                      onClick={() => handleAddIngredients()}
-                      type="button"
+                    <label
+                      for="inputIngredient"
+                      className="form-label input_label"
                     >
-                      Add
-                    </button>
-                    <button
-                      className="btn btn-danger button_delete"
-                      onClick={() => handleRemoveIngredients(index)}
-                      type="button"
-                    >
-                      Delete
-                    </button>
+                      Ingredients
+                    </label>
+                    <div className="container-fluid">
+                      <input
+                        onBlur={formik.handleBlur}
+                        type="text"
+                        className="input-group mb-3 input_box mx-auto"
+                        id="ingredients"
+                        value={ingredient}
+                        onChange={(event) =>
+                          handleCHangeIngredients(index, event.target.value)
+                        }
+                      />
+                      {removeBtn(index)}
+                      {/* <button
+                        className="btn btn-success button_login"
+                        onClick={() => handleAddIngredients()}
+                        type="button"
+                      >
+                        Add
+                      </button>
+                      <button
+                        className="btn btn-danger button_delete"
+                        onClick={() => handleRemoveIngredients(index)}
+                        type="button"
+                      >
+                        Delete
+                      </button> */}
                     </div>
-                  {formik.touched.ingredients && formik.errors.ingredients ? (
-                    <div>{formik.errors.ingredients}</div>
-                  ) : null}
+                    {formik.touched.ingredients && formik.errors.ingredients ? (
+                      <div className="input_label">
+                        {formik.errors.ingredients}
+                      </div>
+                    ) : null}
                   </div>
                 </>
               );

@@ -1,3 +1,7 @@
+const feedBack = () => {
+  alert("your feedback has been sent")
+};
+
 function Footer() {
   return (
     <div className="container">
@@ -24,7 +28,7 @@ function Footer() {
           feedback
           <div className="input-group mb-3">
             <input type="text" className="form-control" placeholder="Ketikan Feedbackmu" />
-            <button className="btn btn-outline-secondary" type="button" id="button-addon2" onclick="feedBack();">
+            <button className="btn btn-outline-secondary" type="button" id="button-addon2" onclick={() => feedBack}>
               send
             </button>
           </div>
