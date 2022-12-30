@@ -99,7 +99,7 @@ function Registerfood() {
         .then((response) => {
           alert("adding food success!");
           console.log(response);
-          window.location.href = "/foodlist";
+          window.location.href = "/food";
         })
         .catch((error) => {
           alert("adding food not success! check your food value");

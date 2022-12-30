@@ -14,17 +14,17 @@ function Navbar() {
       return (
         <>
           <li className="nav-item">
-            <Link to="/registerfood" className="nav-link">
+            <Link to="/register" className="nav-link">
               Register Food
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/foodlist" className="nav-link">
+            <Link to="/food" className="nav-link">
               Food List
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/showuser" className="nav-link">
+            <Link to="/user" className="nav-link">
               Show User
             </Link>
           </li>
@@ -40,7 +40,7 @@ function Navbar() {
             </p>
             <ul className="dropdown-menu">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <Link to="/profile" className="nav-link">
+              <Link to="/myprofile" className="nav-link">
                 Profile
               </Link>
               <li>

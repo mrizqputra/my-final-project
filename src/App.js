@@ -43,7 +43,7 @@ function App() {
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
                 commodo tincidunt.
               </div>
-              <Link to="/registerfood" className="homeButton ms-3">
+              <Link to="/register" className="homeButton ms-3">
                 Register Food
               </Link>
             </div>
@@ -73,7 +73,7 @@ function App() {
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
                 commodo tincidunt.
               </div>
-              <Link to="/foodlist" className="homeButton ms-3">
+              <Link to="/food" className="homeButton ms-3">
                 Food List
               </Link>
             </div>
@@ -101,7 +101,7 @@ function App() {
                 amet eleifend felis, non laoreet purus. Maecenas volutpat
                 commodo tincidunt.
               </div>
-              <Link to="/showuser" className="homeButton ms-3">
+              <Link to="/user" className="homeButton ms-3">
                 Show User
               </Link>
             </div>
@@ -136,7 +136,7 @@ function App() {
               food and collect them to favourite menus.
             </div>
             <div className="row">
-              <Link to="/register" className="homeButton ms-3">
+              <Link to="/signup" className="homeButton ms-3">
                 Sign Up
               </Link>
               <Link to="/login" className="homeButton ms-3">
