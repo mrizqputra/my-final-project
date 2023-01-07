@@ -338,7 +338,7 @@ function Foodlist() {
                     <div className="row mb-3 text-center float-lg-end float-md-end">
                       <div className="col-3">
                         <button
-                          className="shadow btn btn-light button_submit"
+                          className="shadow btn btn-dark button_submit"
                           style={{
                             color: `${item.isLike ? "orange" : ""}`,
                             // width: `${'90px'}`,
@@ -547,7 +547,7 @@ function Foodlist() {
                       <div className="bg-light rounded shadow py-3 mb-3">
                         <div className="h6 input_label">name: {item.name}</div>
                         <div className="h6 input_label">
-                          rating: {item.rating}
+                          rating average: {item.rating}
                         </div>
                         <img
                           src={item.imageUrl}
@@ -555,11 +555,19 @@ function Foodlist() {
                           alt="food list img"
                           className="img-fluid input_label foodlist_img"
                         />
+                        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#reviewExample" aria-expanded="false" aria-controls="reviewExample">
+    Click to give a Review
+  </button>
+                        </div>
                       </div>
+                      <div className="bg-light rounded shadow py-3 mb-3">
+                        <div className="h3 input_label">Reviewer and Commentary</div>
+
                       {reviewList.map((item) => {
                         console.log(item);
                         return (
-                          <div className="bg-light rounded shadow py-3 mb-3">
+                          <div className="bg-light rounded shadow py-3 mb-3 mx-3">
                             <div className="row input_label">
                               <div className="col-2">
                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -581,6 +589,8 @@ function Foodlist() {
                           </div>
                         );
                       })}
+                      </div>
+                      <div class="collapse" id="reviewExample">
                       <form
                         className="row g-1 bg-info bg-opacity-10 rounded shadow py-3 mt-4 mb-3"
                         onSubmit={(e) => handleReviewSubmit(e, item.id)}
@@ -648,6 +658,7 @@ function Foodlist() {
                           </button>
                         </div>
                       </form>
+                      </div>
                     </div>
                   </div>
                 </div>

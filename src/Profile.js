@@ -172,7 +172,7 @@ function Profile() {
               <div className="row mb-3">
               <button
                 type="button"
-                className="btn btn-primary button_submit col-6 col-lg-4"
+                className="btn btn-primary button_submit col-6 col-lg-4 me-3"
                 data-bs-toggle="modal"
                 data-bs-target="#editProfile"
               >

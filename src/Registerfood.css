@@ -42,7 +42,7 @@ height: 50px;
 /* left: calc(50% - 500px/2 + 4px);
 top: calc(50% - 50px/2 + 97px); */
 margin-left: 15%;
-background: #003465;
+/* background: #003465; */
 border-radius: 10px;
 }
 
@@ -56,7 +56,7 @@ height: 50px;
 /* left: calc(50% - 500px/2 + 4px);
 top: calc(50% - 50px/2 + 97px); */
 /* margin-left: 15%; */
-background: #003465;
+/* background: #003465; */
 border-radius: 10px;
 }
 
@@ -70,6 +70,6 @@ height: 50px;
 /* left: calc(50% - 500px/2 + 4px);
 top: calc(50% - 50px/2 + 97px); */
 margin-left: 15%;
-background: #003465;
+/* background: #003465; */
 border-radius: 10px;
 }
