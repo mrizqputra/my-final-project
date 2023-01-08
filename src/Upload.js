@@ -28,7 +28,7 @@ const Upload = ({onChange}) => {
 
     let config = {
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer${localStorage.getItem("token")}`,
         'Content-Type': 'multipart/form-data',
       },

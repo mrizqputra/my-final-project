@@ -9,9 +9,9 @@ function Foodlist() {
   const getFoodData = () => {
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/foods`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/foods`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem(`token`)}`,
       },
     })
@@ -116,9 +116,9 @@ function Foodlist() {
     const values = formik.values;
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/update-food/${id}`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/update-food/${id}`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       data: {
@@ -145,9 +145,9 @@ function Foodlist() {
     const values = formik.values;
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/rate-food/${id}`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/rate-food/${id}`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       data: {
@@ -170,9 +170,9 @@ function Foodlist() {
     if (window.confirm("are you sure you want to edit?")) {
       axios({
         method: "get",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/foods/${id}`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/foods/${id}`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
           Authorization: `Bearer ${localStorage.getItem(`token`)}`,
         },
       })
@@ -189,9 +189,9 @@ function Foodlist() {
     // if (window.confirm("are you sure you want to edit?")) {
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/food-rating/${id}`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/food-rating/${id}`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         // Authorization: `Bearer ${localStorage.getItem(`token`)}`,
       },
     })
@@ -219,9 +219,9 @@ function Foodlist() {
       // kalo user klik ok
       axios({
         method: "delete",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/delete-food/${id}`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/delete-food/${id}`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
           Authorization: `Bearer ${localStorage.getItem(`token`)}`,
         },
       })
@@ -241,9 +241,9 @@ function Foodlist() {
     if (!isLike) {
       axios({
         method: "post",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/like`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/like`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
           Authorization: `Bearer ${localStorage.getItem(`token`)}`,
         },
         data: {
@@ -261,9 +261,9 @@ function Foodlist() {
     } else {
       axios({
         method: "post",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/unlike`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/unlike`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
           Authorization: `Bearer ${localStorage.getItem(`token`)}`,
         },
         data: {

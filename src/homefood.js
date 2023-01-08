@@ -9,9 +9,9 @@ function Homefood() {
     // Promise
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/foods`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/foods`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
       },
     })
       .then(function (response) {

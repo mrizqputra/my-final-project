@@ -14,9 +14,9 @@ function Showuser() {
     // Promise
     axios({
       method: "get",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/all-user`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/all-user`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem(`token`)}`,
       },
     })
@@ -70,9 +70,9 @@ function Showuser() {
     const values = formik.values;
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/update-profile`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/update-profile`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       data: {
@@ -101,9 +101,9 @@ function Showuser() {
     console.log(values.role);
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_BASE_URL}/api/v1/update-user-role/${id}`,
+      url: `https://api-bootcamp.do.dibimbing.id/api/v1/update-user-role/${id}`,
       headers: {
-        apiKey: `${process.env.REACT_APP_API_KEY}`,
+        apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       data: {

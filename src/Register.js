@@ -42,9 +42,9 @@ const Register = () => {
       console.log(fileToUpload)
       axios({
         method: 'post',
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/register`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/register`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`
         },
         data: {
           name: values.name,

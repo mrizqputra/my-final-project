@@ -84,9 +84,9 @@ function Registerfood() {
       console.log(fileToUpload);
       axios({
         method: "post",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/create-food`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/create-food`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         data: {

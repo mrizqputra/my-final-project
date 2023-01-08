@@ -28,9 +28,9 @@ const Login = () => {
     onSubmit: (values) => {
       axios({
         method: "post",
-        url: `${process.env.REACT_APP_BASE_URL}/api/v1/login`,
+        url: `https://api-bootcamp.do.dibimbing.id/api/v1/login`,
         headers: {
-          apiKey: `${process.env.REACT_APP_API_KEY}`,
+          apiKey: `w05KkI9AWhKxzvPFtXotUva-`,
         },
         data: {
           email: values.email,
